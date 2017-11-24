@@ -4,40 +4,36 @@
 }
 
 header{
+    padding-top:3px;
     width: 100%;
-    background-color:lightgrey;
+    background-color:grey;
     text-align:center;
     border-bottom:2px solid black;
 }
 
+body{
+    background-image: url("images/achtergrondafbeelding.jpg");
+    background-size:cover;
+}
+
+main{
+}
+
 footer{
     width: 100%;
-    background-color:lightgrey;
+    background-color:grey;
     text-align:center;
     position:fixed;
     bottom:0;
     left:0;
     border-top:2px solid black;
+    color: black;
+    padding:3px;
 }
 
 .logo{
-    width:20%;
-    margin-bottom:0;
+    width:16%;
     border:5px solid black;
-    filter:grayscale(100%);
-}
-
-
-.background-left{
-    height:100%;
-    position:fixed;
-    left:0;
-}
-
-.background-right{
-    height:100%;
-    position:fixed;
-    right:0;
 }
 
 h4{
