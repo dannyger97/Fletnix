@@ -4,18 +4,21 @@
 }
 /* Desktop only */
 @media screen and (min-width: 768px){
+    body{
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+    }
 
     header{
         padding-top:3px;
         width: 100%;
-        background-color:#894204;
+        background-color:green;
         text-align:center;
         border-bottom:2px solid black;
     }
 
     footer{
         width: 100%;
-        background-color:#dd9c63;
+        background-color:green;
         text-align:center;
         position:fixed;
         bottom:0;
@@ -27,7 +30,7 @@
 
     .logo {
         width: 13%;
-        border-radius:10px;
+        margin-bottom:-0.5%;
     }
     .navigation-container{
         width:100%;
@@ -37,13 +40,19 @@
         list-style-type: none;
         justify-content: space-around;
         padding:10px;
-        background-color:#f4a55f;
+        background-color:lightgreen;
         border: 2px solid black;
     }
+
     .navigation-container a:hover{
-        background-color: #894204;
+        text-decoration: underline;
     }
 
+    .navigation-items a{
+        font-size: 20px;
+        text-decoration: none;
+        color: black;
+    }
 
     .navigation-item{
 
@@ -52,13 +61,33 @@
         color: black;
     }
 
+    .content-container{
+        margin-top: 1%;
+        display:flex;
+        justify-content: center;
+        flex-direction:row;
+        align-content: center;
+    }
+
+    .content{
+        display:flex;
+        flex-direction: column;
+        padding: 0 1% 0 1%;
+        border: 2px solid black;
+        margin: 0 15%;
+        background-color: lightgreen;
+    }
+
 }
 /* Smartphone only */
 @media screen and (max-width: 768px){
+    body{
+        font-family: "Trebuchet MS", Helvetica, sans-serif
+    }
 
     header{
         width: 100%;
-        background-color:#894204;
+        background-color:green;
         text-align:center;
         border-bottom:2px solid black;
     }
@@ -70,7 +99,7 @@
 
     footer{
         width: 100%;
-        background-color:#dd9c63;
+        background-color:green;
         text-align:center;
         border-top:2px solid black;
         color: black;
@@ -79,7 +108,7 @@
 
     .logo {
         width: 25%;
-        border-radius:10px;
+        margin-bottom:-0.5%;
     }
     .navigation-container{
         width:100%;
@@ -89,14 +118,14 @@
         list-style-type: none;
         justify-content: space-around;
         padding:10px;
-        background-color:#f4a55f;
+        background-color:lightgreen;
         border: 2px solid black;
         font-size: 20px;
         text-decoration: none;
         color: black;
     }
     .navigation-container a:hover{
-        background-color: #894204;
+        text-decoration: underline;
     }
 
 
@@ -105,6 +134,23 @@
         text-decoration: none;
         color: black;
     }
+
+    .content-container{
+        display:flex;
+        justify-content: space-between;
+        flex-direction:row;
+        align-content: center;
+    }
+
+    .content{
+        display:flex;
+        flex-direction: column;
+        padding: 0 1% 0 1%;
+        border: 2px solid black;
+        margin: 0 15%;
+        background-color:lightgreen;
+    }
+
 }
 
 
