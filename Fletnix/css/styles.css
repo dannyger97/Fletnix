@@ -4,7 +4,7 @@
 }
 
 /* Desktop only */
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1081px) {
     body {
         font-family: "Trebuchet MS", Helvetica, sans-serif;
     }
@@ -89,7 +89,7 @@
 }
 
 /* Smartphone only */
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1081px) {
     body {
         font-family: "Trebuchet MS", Helvetica, sans-serif
     }
