@@ -1,157 +1,191 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
+
 /* Desktop only */
-@media screen and (min-width: 768px){
-    body{
+@media screen and (min-width: 768px) {
+    body {
         font-family: "Trebuchet MS", Helvetica, sans-serif;
     }
 
-    header{
-        padding-top:3px;
+    header {
+        padding-top: 3px;
         width: 100%;
-        background-color: rgb(65,83,59);
-        text-align:center;
-        border-bottom:2px solid black;
+        background-color: rgb(65, 83, 59);
+        text-align: center;
+        border-bottom: 2px solid black;
     }
 
-    footer{
+    footer {
         width: 100%;
-        background-color:rgb(65,83,59);
-        text-align:center;
-        position:fixed;
-        bottom:0;
-        left:0;
-        border-top:2px solid black;
+        background-color: rgb(65, 83, 59);
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        border-top: 2px solid black;
         color: black;
-        padding:3px;
+        padding: 3px;
+    }
+
+    .hidesubmenu {
+        display: none;
+        list-style-type: none;
     }
 
     .logo {
         width: 13%;
-        margin-bottom:-0.5%;
+        margin-bottom: -0.5%;
     }
-    .navigation-container{
-        width:100%;
+
+    .navigation-container {
+        width: 100%;
     }
-    .navigation-items{
-        display:flex;
+
+    .navigation-items {
+        display: flex;
         list-style-type: none;
         justify-content: space-around;
-        padding:10px;
-        background-color: rgb(96,68,57);
+        padding: 10px;
+        background-color: rgb(96, 68, 57);
         border: 2px solid black;
     }
 
-    .navigation-container a:hover{
+    .navigation-container a:hover {
         text-decoration: underline;
     }
 
-    .navigation-items a{
+    .navigation-items a {
         font-size: 20px;
         text-decoration: none;
         color: black;
     }
 
-    .navigation-item{
+    .navigation-item {
 
         font-size: 20px;
         text-decoration: none;
         color: black;
     }
 
-    .content-container{
+    .content-container {
         margin-top: 1%;
-        display:flex;
+        display: flex;
         justify-content: center;
-        flex-direction:row;
+        flex-direction: row;
         align-content: center;
     }
 
-    .content{
-        display:flex;
+    .content {
+        display: flex;
         flex-direction: column;
         padding: 0 1% 0 1%;
         border: 2px solid black;
         margin: 0 15%;
-        background-color: rgb(158,154,117);
+        background-color: rgb(158, 154, 117);
     }
 
 }
+
 /* Smartphone only */
-@media screen and (max-width: 768px){
-    body{
+@media screen and (max-width: 768px) {
+    body {
         font-family: "Trebuchet MS", Helvetica, sans-serif
     }
 
-    header{
+    header {
         width: 100%;
-        background-color: rgb(65,83,59);
-        text-align:center;
-        border-bottom:2px solid black;
+        background-color: rgb(65, 83, 59);
+        text-align: center;
+        border-bottom: 2px solid black;
     }
 
-    main{
-        width:100%;
+    main {
+        width: 100%;
         margin: 10px;
     }
 
-    footer{
+    footer {
         width: 100%;
-        background-color:rgb(65,83,59);
-        text-align:center;
-        border-top:2px solid black;
+        background-color: rgb(65, 83, 59);
+        text-align: center;
+        border-top: 2px solid black;
         color: black;
-        padding:3px;
+        padding: 3px;
     }
-
+    .hidedesktopmenu{
+        display:none;
+    }
     .logo {
         width: 25%;
-        margin-bottom:-0.5%;
-    }
-    .navigation-container{
-        width:100%;
-    }
-    .navigation-items{
-        display:flex;
-        list-style-type: none;
-        justify-content: space-around;
-        padding:10px;
-        background-color:rgb(96,68,57);
-        border: 2px solid black;
-        font-size: 20px;
-        text-decoration: none;
-        color: black;
-        margin-left: 5px;
-    }
-    .navigation-container a:hover{
-        text-decoration: underline;
+        margin-bottom: -0.5%;
     }
 
+    .submenu{
+        display:none;
+    }
+    .submenu li {
+        list-style: none;
+        border-bottom: 1px solid black;
+        padding: 0 40px 10px 20px;
+        margin: 10px;
+    }
+    .navigation-container {
+        width: 100%;
+    }
 
-    .navigation-items a{
+    .navigation-items {
+        margin-top: 15px;
+    }
+
+    .navigation-items > li {
         display: inline;
-        font-size: 20px;
-        text-decoration: none;
-        color: black;
-        margin-left: 5px;
+        margin-right: 50px;
     }
 
-    .content-container{
-        display:flex;
+    .navigation-items > li:last-of-type {
+        margin-right: 0;
+    }
+
+    .content-container {
+        display: flex;
         justify-content: space-between;
-        flex-direction:row;
+        flex-direction: row;
         align-content: center;
     }
 
-    .content{
-        display:flex;
+    .content {
+        display: flex;
         flex-direction: column;
         padding: 0 1% 0 1%;
         border: 2px solid black;
         margin: 0 10%;
-        background-color: rgb(158,154,117);
+        background-color: rgb(158, 154, 117);
+    }
+
+    .dropdown:hover .submenu {
+        display: flex;
+        flex-direction: column;
+        background: rgb(96, 68, 57);
+        border-radius: 5px;
+        padding-top: 30px;
+        position: absolute;
+        top: 38%;
+        left: 38%;
+        z-index: 1;
+
+    }
+
+    .dropdown {
+        position: relative;
+        list-style: none;
+    }
+
+    .dropdown > span {
+        z-index: 2;
+        position: relative; /* This is important! */
+        cursor: pointer;
     }
 
 }
