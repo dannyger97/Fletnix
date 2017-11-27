@@ -123,6 +123,7 @@
         font-size: 20px;
         text-decoration: none;
         color: black;
+        margin-left: 5px;
     }
     .navigation-container a:hover{
         text-decoration: underline;
@@ -130,9 +131,11 @@
 
 
     .navigation-items a{
+        display: inline;
         font-size: 20px;
         text-decoration: none;
         color: black;
+        margin-left: 5px;
     }
 
     .content-container{
