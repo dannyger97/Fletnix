@@ -11,14 +11,14 @@
     header{
         padding-top:3px;
         width: 100%;
-        background-color:green;
+        background-color: rgb(65,83,59);
         text-align:center;
         border-bottom:2px solid black;
     }
 
     footer{
         width: 100%;
-        background-color:green;
+        background-color:rgb(65,83,59);
         text-align:center;
         position:fixed;
         bottom:0;
@@ -40,7 +40,7 @@
         list-style-type: none;
         justify-content: space-around;
         padding:10px;
-        background-color:lightgreen;
+        background-color: rgb(96,68,57);
         border: 2px solid black;
     }
 
@@ -75,7 +75,7 @@
         padding: 0 1% 0 1%;
         border: 2px solid black;
         margin: 0 15%;
-        background-color: lightgreen;
+        background-color: rgb(158,154,117);
     }
 
 }
@@ -87,7 +87,7 @@
 
     header{
         width: 100%;
-        background-color:green;
+        background-color: rgb(65,83,59);
         text-align:center;
         border-bottom:2px solid black;
     }
@@ -99,7 +99,7 @@
 
     footer{
         width: 100%;
-        background-color:green;
+        background-color:rgb(65,83,59);
         text-align:center;
         border-top:2px solid black;
         color: black;
@@ -118,7 +118,7 @@
         list-style-type: none;
         justify-content: space-around;
         padding:10px;
-        background-color:lightgreen;
+        background-color:rgb(96,68,57);
         border: 2px solid black;
         font-size: 20px;
         text-decoration: none;
@@ -147,8 +147,8 @@
         flex-direction: column;
         padding: 0 1% 0 1%;
         border: 2px solid black;
-        margin: 0 15%;
-        background-color:lightgreen;
+        margin: 0 10%;
+        background-color: rgb(158,154,117);
     }
 
 }
