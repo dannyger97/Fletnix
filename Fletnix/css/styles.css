@@ -10,14 +10,14 @@ body{
 header{
     padding-top:3px;
     width: 100%;
-    background-color:#030781;
+    background-color:#894204;
     text-align:center;
     border-bottom:2px solid black;
 }
 
 footer{
     width: 100%;
-    background-color:cornflowerblue;
+    background-color:#dd9c63;
     text-align:center;
     position:fixed;
     bottom:0;
@@ -29,6 +29,10 @@ footer{
 
 h1,h2,h3,h4,a,p,ul,ol{
     font-family: sans-serif;
+}
+
+h1{
+    color: #fccfb8;
 }
 
 h4{
@@ -45,7 +49,7 @@ h4{
     justify-content: flex-end;
     margin:10px 20px 10px 20px;
     padding:10px;
-    background-color:lightskyblue;
+    background-color:#f4a55f;
     border: 2px solid black;
 }
 
@@ -65,5 +69,4 @@ h4{
 
 .navigation-item a:hover{
     color:darkblue;
-    background-color:deepskyblue;
 }
