@@ -9,6 +9,11 @@
         font-family: "Trebuchet MS", Helvetica, sans-serif;
     }
 
+    h4{
+        color:#e0e0e0;
+        font-weight:lighter;
+    }
+
     header {
         padding-top: 3px;
         width: 100%;
@@ -94,6 +99,11 @@
         font-family: "Trebuchet MS", Helvetica, sans-serif
     }
 
+    h4{
+        color:#e0e0e0;
+        font-weight:lighter;
+    }
+    
     header {
         width: 100%;
         background-color: rgb(65, 83, 59);
