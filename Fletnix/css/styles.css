@@ -118,6 +118,16 @@
         overflow:hidden;
         resize:none;
     }
+
+    .geslacht-container{
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+
+    .content .geslacht{
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 /* Smartphone only */
@@ -240,15 +250,41 @@
     }
 
     .content form{
-        width:50%;
-        margin-top:-10px;
+        margin-left:20px;
+        font-size:25px;
+        width:100%;
+        margin-top:-25px;
         margin-bottom:10px;
     }
     .content label,input{
-        display:inline-block;
+        display:flex;
     }
+
+    .content input{
+        font-size:25px;
+        margin-top:5px;
+        margin-bottom:5px;
+    }
+    .content input[type='radio']{
+        transform: scale(2);
+    }
+
     .content label{
-        width: 20%;
+        width:15%;
         text-align:right;
+    }
+    .content textarea{
+        overflow:hidden;
+        resize:none;
+    }
+
+    .geslacht-container{
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+
+    .content .geslacht{
+        display: flex;
+        flex-direction: row;
     }
 }
