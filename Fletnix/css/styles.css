@@ -105,7 +105,7 @@
         display:inline-block;
     }
     .content label{
-        width: 15%;
+        width: 20%;
         text-align:right;
     }
 
@@ -113,6 +113,9 @@
         text-decoration: underline;
     }
 
+    .content textarea{
+        max-width:70%;
+    }
 }
 
 /* Smartphone only */
@@ -244,7 +247,7 @@
         display:inline-block;
     }
     .content label{
-        width: 15%;
+        width: 20%;
         text-align:right;
     }
 }
