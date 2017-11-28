@@ -103,7 +103,7 @@
 
     main {
         width: 100%;
-        margin: 10px;
+
     }
 
     footer {
@@ -128,7 +128,7 @@
     .submenu li {
         list-style: none;
         border-bottom: 1px solid black;
-        padding: 0 40px 10px 20px;
+        padding: 0px 10px 10px 20px;
         margin: 10px;
     }
     .navigation-container {
@@ -160,7 +160,6 @@
         flex-direction: column;
         padding: 0 1% 0 1%;
         border: 2px solid black;
-        margin: 0 10%;
         background-color: rgb(158, 154, 117);
     }
 
