@@ -76,6 +76,7 @@
 
     .content-container {
         margin-top: 1%;
+        margin-bottom: calc(27px + 1%);
         display: flex;
         justify-content: center;
         flex-direction: row;
@@ -96,7 +97,12 @@
         margin: 0 15%;
         background-color: rgb(158, 154, 117);
     }
-
+    .content video{
+        width: 800px;
+        height: 600px;
+        display: block;
+        margin: auto;
+    }
 }
 
 /* Smartphone only */
@@ -218,6 +224,12 @@
     .dropdown:hover .menutextlayout{
         border: none;
         padding-left: 2px;
+    }
+    .content video{
+        width:400px;
+        height: 400px;
+        display: block;
+        margin: auto;
     }
 }
 
