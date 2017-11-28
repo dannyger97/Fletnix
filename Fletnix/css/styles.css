@@ -97,8 +97,10 @@
     header {
         width: 100%;
         background-color: rgb(65, 83, 59);
-        text-align: center;
         border-bottom: 2px solid black;
+    }
+    header * {
+        margin-left: 5px;
     }
 
     main {
@@ -121,27 +123,33 @@
         width: 25%;
         margin-bottom: -0.5%;
     }
+    .menutextlayout{
+        color:white;
+        border: 2px solid black;
+        background-color: rgb(96, 68, 57);
+
+    }
 
     .submenu{
         display:none;
     }
     .submenu li {
         list-style: none;
-        border-bottom: 1px solid black;
-        padding: 0px 10px 10px 20px;
+        border-bottom: 2px solid black;
+        padding: 0px 0px 0px 0px;
         margin: 10px;
+
+
+    }
+    .submenu a{
+        color: white;
+        text-decoration: none;
+    }
+    .submenu a:hover{
+        text-decoration: underline;
     }
     .navigation-container {
         width: 100%;
-    }
-
-    .navigation-items {
-        margin-top: 15px;
-    }
-
-    .navigation-items > li {
-        display: inline;
-        margin-right: 50px;
     }
 
     .navigation-items > li:last-of-type {
@@ -159,7 +167,6 @@
         display: flex;
         flex-direction: column;
         padding: 0 1% 0 1%;
-        border: 2px solid black;
         background-color: rgb(158, 154, 117);
     }
 
@@ -170,8 +177,8 @@
         border-radius: 5px;
         padding-top: 30px;
         position: absolute;
-        top: 38%;
-        left: 38%;
+        top: 0px;
+        left: 0px;
         z-index: 1;
 
     }
@@ -182,7 +189,7 @@
     }
 
     .dropdown > span {
-        z-index: 0;
+        z-index: 2;
         position: relative; /* This is important! */
         cursor: pointer;
     }
