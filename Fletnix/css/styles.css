@@ -103,7 +103,7 @@
         margin-bottom:10px;
     }
     .content label,input{
-        display:inline-block;
+        display:flex;
     }
     .content label{
         width: 20%;
@@ -113,6 +113,12 @@
     .content label:hover{
         text-decoration: underline;
     }
+
+    .content textarea{
+        overflow:hidden;
+        resize:none;
+    }
+}
 
 /* Smartphone only */
 @media screen and (max-width: 1081px) {
