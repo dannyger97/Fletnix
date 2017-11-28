@@ -55,14 +55,16 @@
                 <P>
                     Als u contact wilt opnemen met ons, vult u dan dit formulier in:
                 </P><br/>
-                <form action="get" id="contact">
+                <form class="formulier" action="get" id="contact">
                     <div class="veld">
                         <label for="naam">Naam</label>
                         <input type="text" name="naam" id="naam"/>
                     </div>
                     <div class="veld">
-                        Man <input type="radio" name="geslacht" value="Man">
-                        Vrouw <input type="radio" name="geslacht" value="Vrouw">
+                        <label for="man">Man</label>
+                        <input type="radio" name="geslacht" value="Man" id="man"/>
+                        <label for="vrouw">Vrouw</label>
+                        <input type="radio" name="geslacht" value="Vrouw" id="vrouw"/>
                     </div>
                     <div class="veld">
                         <label for="telefoon">Telefoon</label>
