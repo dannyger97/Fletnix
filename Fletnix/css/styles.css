@@ -9,9 +9,9 @@
         font-family: "Trebuchet MS", Helvetica, sans-serif;
     }
 
-    h4{
-        color:#e0e0e0;
-        font-weight:lighter;
+    h4 {
+        color: #e0e0e0;
+        font-weight: lighter;
     }
 
     header {
@@ -34,7 +34,7 @@
         padding: 3px;
     }
 
-    .dropdown,.menutextlayout {
+    .dropdown, .menutextlayout {
         display: none;
         list-style-type: none;
     }
@@ -82,13 +82,16 @@
         flex-direction: row;
         align-content: center;
     }
-    .content a{
+
+    .content a {
         text-decoration: none;
 
     }
-    .content a:hover{
+
+    .content a:hover {
         text-decoration: underline;
     }
+
     .content {
         display: flex;
         flex-direction: column;
@@ -97,41 +100,45 @@
         margin: 0 15%;
         background-color: rgb(158, 154, 117);
     }
-    .content form{
-        width:50%;
-        margin-top:-10px;
-        margin-bottom:10px;
-    }
-    .content label,input{
-        display:flex;
-    }
-    .content label{
-        width: 20%;
-        text-align:right;
-    }
 
-    .content label:hover{
-        text-decoration: underline;
-    }
-
-    .content textarea{
-        overflow:hidden;
-        resize:none;
+    .content form {
+        width: 50%;
+        margin-top: -10px;
         margin-bottom: 10px;
     }
 
-    .geslacht-container{
-        margin-top:10px;
-        margin-bottom:10px;
+    .content label, input {
+        display: flex;
     }
 
-    .content .geslacht{
+    .content label {
+        width: 20%;
+        text-align: right;
+    }
+
+    .content label:hover {
+        text-decoration: underline;
+    }
+
+    .content textarea {
+        overflow: hidden;
+        resize: none;
+        margin-bottom: 10px;
+    }
+
+    .geslacht-container {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .content .geslacht {
         display: flex;
         flex-direction: row;
     }
-    video{
+
+    video {
         width: 90%;
-        height:60%;
+        height: 60%;
         margin: auto;
     }
 }
@@ -142,9 +149,9 @@
         font-family: "Trebuchet MS", Helvetica, sans-serif
     }
 
-    h4{
-        color:#e0e0e0;
-        font-weight:lighter;
+    h4 {
+        color: #e0e0e0;
+        font-weight: lighter;
     }
 
     header {
@@ -167,7 +174,6 @@
         padding: 3px;
     }
 
-
     .content-container {
         display: flex;
         justify-content: space-between;
@@ -182,15 +188,17 @@
         background-color: rgb(158, 154, 117);
     }
 
-    .navigation-items{
-        display:none;
+    .navigation-items {
+        display: none;
     }
+
     .logo {
         width: 25%;
         margin-bottom: -0.5%;
     }
-    .menutextlayout{
-        color:white;
+
+    .menutextlayout {
+        color: white;
         padding-left: 2px;
         font-size: 25px;
         border: 2px solid black;
@@ -198,24 +206,27 @@
 
     }
 
-    .submenu{
-        display:none;
+    .submenu {
+        display: none;
     }
+
     .submenu li {
         list-style: none;
         border-bottom: 2px solid black;
         padding: 0 0 0 0;
         margin: 10px;
 
-
     }
-    .submenu a{
+
+    .submenu a {
         color: white;
         text-decoration: none;
     }
-    .submenu a:hover{
+
+    .submenu a:hover {
         text-decoration: underline;
     }
+
     .navigation-container {
         width: 100%;
     }
@@ -250,52 +261,56 @@
         cursor: pointer;
     }
 
-    .dropdown:hover .menutextlayout{
+    .dropdown:hover .menutextlayout {
         border: none;
         padding-left: 2px;
     }
 
-    .content form{
-        margin-left:20px;
-        font-size:30px;
-        width:100%;
-        margin-top:-25px;
-        margin-bottom:10px;
-    }
-    .content label,input{
-        display:flex;
-    }
-
-    .content input{
-        font-size:30px;
-        margin-top:5px;
-        margin-bottom:5px;
-    }
-    .content input[type='radio']{
-        transform: scale(2);
-    }
-
-    .content label{
-        width:15%;
-        text-align:right;
-    }
-    .content textarea{
-        overflow:hidden;
-        resize:none;
+    .content form {
+        margin-left: 20px;
+        font-size: 30px;
+        width: 100%;
+        margin-top: -25px;
         margin-bottom: 10px;
     }
 
-    .geslacht-container{
-        margin-top:10px;
-        margin-bottom:10px;
+    .content label, input {
+        display: flex;
     }
 
-    .content .geslacht{
+    .content input {
+        font-size: 30px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .content input[type='radio'] {
+        transform: scale(2);
+    }
+
+    .content label {
+        width: 15%;
+        text-align: right;
+    }
+
+    .content textarea {
+        overflow: hidden;
+        resize: none;
+        margin-bottom: 10px;
+    }
+
+    .geslacht-container {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .content .geslacht {
         display: flex;
         flex-direction: row;
     }
-    video{
-        width: 100;
+
+    video {
+        width: 90%;
         height: 60%;
         margin: auto;
     }
