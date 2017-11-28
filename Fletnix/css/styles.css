@@ -117,6 +117,7 @@
     .content textarea{
         overflow:hidden;
         resize:none;
+        margin-bottom: 10px;
     }
 
     .geslacht-container{
@@ -251,7 +252,7 @@
 
     .content form{
         margin-left:20px;
-        font-size:25px;
+        font-size:30px;
         width:100%;
         margin-top:-25px;
         margin-bottom:10px;
@@ -261,7 +262,7 @@
     }
 
     .content input{
-        font-size:25px;
+        font-size:30px;
         margin-top:5px;
         margin-bottom:5px;
     }
@@ -276,6 +277,7 @@
     .content textarea{
         overflow:hidden;
         resize:none;
+        margin-bottom: 10px;
     }
 
     .geslacht-container{
