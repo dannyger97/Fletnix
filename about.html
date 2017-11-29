@@ -79,7 +79,7 @@
                 </div>
                 <div class="veld">
                     <label for="telefoon">Telefoon</label>
-                    <input type="number" name="telefoon" id="telefoon"/>
+                    <input type="tel" name="telefoon" id="telefoon" maxlength="10"/>
                 </div>
                 <div class="veld">
                     <label for="email">E-mail</label>
@@ -87,14 +87,18 @@
                 </div>
                 <div class="veld">
                     <label for="opmerkingen">Opmerkingen</label>
-                    <textarea name="opmerkingen" id="opmerkingen" rows="6" cols="50"></textarea>
+                    <textarea name="opmerkingen" id="opmerkingen" rows="6" cols="40"></textarea>
                 </div>
+                <button type="reset" onclick="alert('Het contactformulier is leeggemaakt')" value="reset">Reset</button>
+                <button type="reset" onclick="alert('Het contactformulier is verzonden')" value="reset">Verzenden</button>
             </form>
         </div>
     </div>
 </main>
 <footer>
-    <h4>&copy; - Danny Gerritsen en Wout Hakvoort - 2017</h4>
+    <h4>
+        &copy; - Danny Gerritsen en Wout Hakvoort - 2017
+    </h4>
 </footer>
 </body>
 </html>
