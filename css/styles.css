@@ -390,6 +390,10 @@
         margin-bottom: 10px;
     }
 
+    .content p{
+        font-size:15px
+    }
+
     .geslacht-container {
         margin-top: 10px;
         margin-bottom: 10px;
@@ -426,5 +430,56 @@
     }
     .samenvatting{
         width:100%;
+    }
+
+    .index-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .index-item{
+        display:flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+    }
+
+    .index-item img {
+        width:auto;
+        height:235px;
+        margin:10px auto;
+    }
+
+    .index-item a{
+        margin:0 auto;
+    }
+
+    .index-container h1{
+        font-size:20px;
+        color:black;
+        text-decoration: underline;
+        margin:5px 10px;
+    }
+
+    .index-container {
+        color:white;
+    }
+
+    .video-container video{
+       display:none;
+    }
+
+    .index-text p{
+        font-size:15px;
+        margin:5px 5px;
+        color:black;
+    }
+
+    .index-text h2{
+        font-size:15px;
+        margin:5px 5px;
+        color:black;
+    }
+    .index-text a{
+        color:indianred;
     }
 }
