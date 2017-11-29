@@ -349,6 +349,7 @@
     .samenvatting img {
         width: 30%;
         float: left;
+        padding-right: 10px;
     }
     .samenvatting{
         width:100%;
