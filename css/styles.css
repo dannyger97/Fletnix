@@ -68,7 +68,6 @@
     }
 
     .navigation-item {
-
         font-size: 20px;
         text-decoration: none;
         color: black;
@@ -140,6 +139,13 @@
         width: 90%;
         height: 60%;
         margin: auto;
+    }
+
+    button{
+        background-color:  rgb(96, 68, 57);
+        border:2px solid black;
+        color: #e0e0e0;
+        padding: 3px 5px;
     }
 }
 
@@ -268,7 +274,7 @@
 
     .content form {
         margin-left: 20px;
-        font-size: 30px;
+        font-size: 20px;
         width: 100%;
         margin-top: -25px;
         margin-bottom: 10px;
@@ -279,7 +285,7 @@
     }
 
     .content input {
-        font-size: 30px;
+        font-size: 20px;
         margin-top: 5px;
         margin-bottom: 5px;
     }
@@ -289,6 +295,7 @@
     }
 
     .content label {
+        margin-top:5px;
         width: 15%;
         text-align: right;
     }
@@ -315,4 +322,11 @@
         margin: auto;
     }
 
+    button{
+        background-color:  rgb(96, 68, 57);
+        border:2px solid black;
+        color: #e0e0e0;
+        padding: 3px 5px;
+        font-size:20px;
+    }
 }
