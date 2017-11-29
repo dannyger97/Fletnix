@@ -147,6 +147,17 @@
         color: #e0e0e0;
         padding: 3px 5px;
     }
+    table{
+        border-collapse:collapse;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+    .samenvatting img{
+        width:25%;
+        float: left;
+        padding-right: 10px;
+    }
 }
 
 /* Smartphone only */
@@ -317,8 +328,8 @@
     }
 
     video {
-        width: 90%;
-        height: 60%;
+        width: 800px;
+        height: 600px;
         margin: auto;
     }
 
@@ -329,4 +340,19 @@
         padding: 3px 5px;
         font-size:14px;
     }
+    table{
+        border-collapse:collapse;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+    .samenvatting img {
+        width: 30%;
+        float: left;
+    }
+    .samenvatting{
+        width:100%;
+    }
+
+
 }
