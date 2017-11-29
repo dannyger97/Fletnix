@@ -461,6 +461,9 @@
     }
 
     .index-container {
+        padding: 0 1% 0 1%;
+        border: 2px solid black;
+        background-color: rgb(158, 154, 117);
         color:white;
     }
 
@@ -480,6 +483,6 @@
         color:black;
     }
     .index-text a{
-        color:indianred;
+        color:black;
     }
 }
