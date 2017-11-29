@@ -274,7 +274,7 @@
 
     .content form {
         margin-left: 20px;
-        font-size: 20px;
+        font-size: 17px;
         width: 100%;
         margin-top: -25px;
         margin-bottom: 10px;
@@ -285,13 +285,13 @@
     }
 
     .content input {
-        font-size: 20px;
+        font-size: 17px;
         margin-top: 5px;
         margin-bottom: 5px;
     }
 
     .content input[type='radio'] {
-        transform: scale(2);
+        transform: scale(1.5);
     }
 
     .content label {
@@ -327,6 +327,6 @@
         border:2px solid black;
         color: #e0e0e0;
         padding: 3px 5px;
-        font-size:20px;
+        font-size:14px;
     }
 }
