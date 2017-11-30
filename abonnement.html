@@ -53,7 +53,7 @@
                 Wij van Fletnix bieden zeer mooie abonnementen aan voor voordelige prijzen.
             </p>
             <br>
-            <div class="abbonement">
+            <div class="abonement">
                 <table>
                     <tr>
                         <th>Feature</th>
@@ -101,6 +101,57 @@
                 </table>
                 <br>
             </div>
+            <h2>Aanmelden</h2>
+            <br>
+            <form class="formulier" action="abonnement.html" id="aanmelding">
+                <div class="">
+                    <label for="voornaam">Voornaam</label>
+                    <input type="text" name="voornaam" id="voornaam"/>
+                </div>
+                <div>
+                    <label for="achternaam">Achternaam</label>
+                    <input type="text" name="achternaam" id="achternaam">
+                </div>
+                <div>
+                    <label for="land">Land</label>
+                    <select name="land" id="land">
+                        <option value="nederland">Nederland</option>
+                        <option value="belgië">België</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="geboortedatum">Geboortedatum</label>
+                    <input type="date" name="geboortedatum" id="geboortedatum" max="2017-11-30">
+                </div>
+                <div>
+                    <label for="rekeningnummer">Rekeningnummer</label>
+                    <input type="text" id="rekeningnummer" name="rekeningnummer">
+                </div>
+                <div>
+                    <label for="gebruikersnaam">Gebruikersnaam</label>
+                    <input type="text" id="gebruikersnaam" name="gebruikersnaam">
+                </div>
+                <div>
+                    <label for="wachtwoord">Wachtwoord</label>
+                    <input type="password" id="wachtwoord" name="wachtwoord">
+                </div>
+                <div>
+                    <label for="wachtwoord2">Bevestig wachtwoord</label>
+                    <input type="password" id="wachtwoord2" name="wachtwoord2">
+                </div>
+                <div>
+                    <label for="private">Private</label>
+                    <input type="radio" name="abonnement" id="private" value="Private">
+                    <label for="sergeant">Sergeant</label>
+                    <input type="radio" name="abonnement" id="sergeant" value="Sergeant">
+                    <label for="commander">Commander</label>
+                    <input type="radio" name="abonnement" id="commander" value="Commander">
+                </div>
+                <div>
+                    <label for="verzenden">Verzenden</label>
+                    <input type="submit" id="verzenden">
+                </div>
+            </form>
         </div>
     </div>
 </main>
