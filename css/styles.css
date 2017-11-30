@@ -140,112 +140,128 @@
         margin: auto;
     }
 
-    button{
-        background-color:  rgb(96, 68, 57);
-        border:2px solid black;
+    button {
+        background-color: rgb(96, 68, 57);
+        border: 2px solid black;
         color: #e0e0e0;
         padding: 3px 5px;
     }
-    table{
+
+    table {
         margin-top: 5px;
-        border-collapse:collapse;
+        border-collapse: collapse;
     }
+
     table, th, td {
         text-align: left;
         border: 1px solid black;
     }
-    .verhaal img{
-        width:25%;
+
+    .verhaal img {
+        width: 25%;
         float: left;
         padding-right: 10px;
     }
 
-    .index-container{
+    .index-container {
         display: flex;
         flex-direction: column;
     }
 
-    .index-item{
-        display:flex;
-        flex-direction:row;
+    .index-item {
+        display: flex;
+        flex-direction: row;
     }
 
-    .index-item img{
-        margin:5px 10px;
-        width:auto;
-        height:400px;
+    .index-item img {
+        margin: 5px 10px;
+        width: auto;
+        height: 400px;
     }
 
-    .index-container h1{
-        color:black;
+    .index-container h1 {
+        color: black;
         text-decoration: underline;
-        margin:5px 10px;
+        margin: 5px 10px;
     }
 
     .index-container {
-        color:white;
+        color: white;
     }
 
-    .video-container{
+    .video-container {
         position: relative;
-        width:100%;
-        height:100%;
-        overflow:hidden;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
     }
-    .video-container video{
+
+    .video-container video {
         min-width: 100%;
-        min-height:100%;
+        min-height: 100%;
         position: relative;
-        filter:grayscale(100%);
+        filter: grayscale(100%);
     }
 
-    .overlay{
-        height:99.5%;
-        width:100%;
-        position:absolute;
-        top:0;
-        left:0;
-        z-index:2;
-        background:black;
-        opacity:0.75;
+    .overlay {
+        height: 99.5%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background: black;
+        opacity: 0.75;
     }
 
-    .index-text{
-        height:99.5%;
-        width:100%;
-        position:absolute;
-        top:0;
-        left:0;
-        z-index:3;
+    .index-text {
+        height: 99.5%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
     }
 
-    .index-text p{
-        font-size:20px;
-        margin:5% 20px;
-        color:#e0e0e0;
+    .index-text p {
+        font-size: 20px;
+        margin: 5% 20px;
+        color: #e0e0e0;
     }
 
-    .index-text h2{
-        font-size:30px;
-        margin:50px 20px;
-        color:rgb(158, 154, 117);
-    }
-    .index-text a{
-        color:indianred;
+    .index-text h2 {
+        font-size: 30px;
+        margin: 50px 20px;
+        color: rgb(158, 154, 117);
     }
 
-    .abonnement-container{
-        margin-top:-5px;
-        width:100%;
-        display:flex;
+    .index-text a {
+        color: indianred;
+    }
+
+    .abonnement-container {
+        margin-top: -5px;
+        width: 100%;
+        display: flex;
         flex-direction: row;
         justify-content: center;
-        background-color:rgb(32, 32, 32);
+        background-color: rgb(32, 32, 32);
     }
 
-    .abonnement-container img{
-        height:350px;
-        margin:20px 30px;
+    .abonnement-container img {
+        height: 350px;
+        margin: 20px 30px;
+    }
+
+    .inlog {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        border: 1px solid black;
+        padding: 4px;
+        background-color: rgb(96, 68, 57);
+        color: #e0e0e0;
+        font-size: 20px;
     }
 }
 
@@ -289,7 +305,7 @@
 
     .content {
         display: flex;
-        width:100%;
+        width: 100%;
         flex-direction: column;
         padding: 0 1% 0 1%;
         background-color: rgb(158, 154, 117);
@@ -396,7 +412,7 @@
     }
 
     .content label {
-        margin-top:5px;
+        margin-top: 5px;
         width: 15%;
         text-align: right;
     }
@@ -407,8 +423,8 @@
         margin-bottom: 10px;
     }
 
-    .content p{
-        font-size:15px
+    .content p {
+        font-size: 15px
     }
 
     .geslacht-container {
@@ -427,79 +443,94 @@
         margin: auto;
     }
 
-    button{
-        background-color:  rgb(96, 68, 57);
-        border:2px solid black;
+    button {
+        background-color: rgb(96, 68, 57);
+        border: 2px solid black;
         color: #e0e0e0;
         padding: 3px 5px;
-        font-size:14px;
+        font-size: 14px;
     }
-    table{
-        border-collapse:collapse;
+
+    table {
+        border-collapse: collapse;
     }
+
     table, th, td {
         border: 1px solid black;
     }
+
     .verhaal img {
         width: 30%;
         float: left;
         padding-right: 10px;
     }
-    .verhaal{
-        width:100%;
+
+    .verhaal {
+        width: 100%;
     }
 
-    .index-container{
+    .index-container {
         display: flex;
         flex-direction: column;
     }
 
-    .index-item{
-        display:flex;
-        flex-direction:row;
+    .index-item {
+        display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
     }
 
     .index-item img {
-        width:auto;
-        height:235px;
-        margin:10px auto;
+        width: auto;
+        height: 235px;
+        margin: 10px auto;
     }
 
-    .index-item a{
-        margin:0 auto;
+    .index-item a {
+        margin: 0 auto;
     }
 
-    .index-container h1{
-        font-size:20px;
-        color:black;
+    .index-container h1 {
+        font-size: 20px;
+        color: black;
         text-decoration: underline;
-        margin:5px 10px;
+        margin: 5px 10px;
     }
 
     .index-container {
         padding: 0 1% 0 1%;
         border: 2px solid black;
         background-color: rgb(158, 154, 117);
-        color:white;
+        color: white;
     }
 
-    .video-container video{
-       display:none;
+    .video-container video {
+        display: none;
     }
 
-    .index-text p{
-        font-size:15px;
-        margin:5px 5px;
-        color:black;
+    .index-text p {
+        font-size: 15px;
+        margin: 5px 5px;
+        color: black;
     }
 
-    .index-text h2{
-        font-size:15px;
-        margin:5px 5px;
-        color:black;
+    .index-text h2 {
+        font-size: 15px;
+        margin: 5px 5px;
+        color: black;
     }
-    .index-text a{
-        color:black;
+
+    .index-text a {
+        color: black;
+    }
+    .inlog {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        border: 1px solid black;
+        padding: 4px;
+        background-color: rgb(96, 68, 57);
+        color: #e0e0e0;
+        font-size: 20px;
     }
 }
