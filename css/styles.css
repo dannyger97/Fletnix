@@ -148,7 +148,6 @@
         text-align: left;
         border: 1px solid black;
     }
-
     .verhaal img {
         width: 25%;
         float: left;
@@ -298,7 +297,7 @@
         cursor: pointer;
     }
 
-    .inlogmenu:hover .menutextlayout {
+    .inlogmenu:hover .gebruikersnaam {
         border: none;
         padding-left: 2px;
         border-bottom: 2px solid black;
@@ -558,10 +557,7 @@
     .index-container h1 {
         font-size: 20px;
         color: black;
-        border:5px;
-        border-style: solid none;
-        background:rgb(158, 154, 117);
-        padding:2px 0;
+        text-decoration: underline;
         margin: 5px 10px;
     }
 
@@ -578,7 +574,7 @@
 
     .index-text p {
         font-size: 15px;
-        margin: 20px 5px;
+        margin: 5px 5px;
         color: black;
     }
 
@@ -589,9 +585,52 @@
     }
 
     .index-text a {
-        color: #e0e0e0;
+        color: black;
+    }
+    .inlogmenu:hover .inlogsubmenu {
+        display: flex;
+        flex-direction: column;
+        background: rgb(96, 68, 57);
+        text-align: left;
+        z-index: 1;
+
     }
 
+    .inlogmenu {
+        position: relative;
+        list-style: none;
+    }
+
+    .inlogmenu > span {
+        z-index: 2;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .inlogmenu:hover .gebruikersnaam {
+        border: none;
+        padding-left: 2px;
+        border-bottom: 2px solid black;
+    }
+    .inlogsubmenu {
+        display: none;
+    }
+
+    .inlogsubmenu li {
+        list-style: none;
+        border-bottom: 2px solid black;
+        margin: 5px;
+        margin-left: 10px;
+    }
+
+    .inlogsubmenu a {
+        color: #e0e0e0;
+        text-decoration: none;
+    }
+
+    .inlogsubmenu a:hover {
+        text-decoration: underline;
+    }
     .inlog {
         position: absolute;
         right: 0;
@@ -602,47 +641,4 @@
         color: #e0e0e0;
         font-size: 20px;
     }
-    .abonnement-container {
-        margin: 20px 0 20px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-color: rgb(32, 32, 32);
-    }
-
-    .abonnement-container img {
-        width:auto;
-        height: 100px;
-        margin: 20px 5px;
-    }
-
-    .abonnement-item{
-        display:flex;
-        flex-direction: column;
-        margin:auto;
-        color:#e0e0e0;
-        width:95%;
-    }
-
-    .abonnement-item-foto{
-        display:flex;
-        flex-direction: row;
-        margin:auto;
-    }
-
-    .abonnement-item h1{
-        color:rgb(158, 154, 117);
-        background:none;
-        border:none;
-        margin:10px 0;
-        text-decoration:none;
-        font-size:17px;
-    }
-
-    .abonnement-item a{
-        color: indianred;
-    }
-
-    
 }
