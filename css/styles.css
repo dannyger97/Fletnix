@@ -558,7 +558,10 @@
     .index-container h1 {
         font-size: 20px;
         color: black;
-        text-decoration: underline;
+        border:5px;
+        border-style: solid none;
+        background:rgb(158, 154, 117);
+        padding:2px 0;
         margin: 5px 10px;
     }
 
@@ -575,7 +578,7 @@
 
     .index-text p {
         font-size: 15px;
-        margin: 5px 5px;
+        margin: 20px 5px;
         color: black;
     }
 
@@ -586,8 +589,9 @@
     }
 
     .index-text a {
-        color: black;
+        color: #e0e0e0;
     }
+
     .inlog {
         position: absolute;
         right: 0;
@@ -598,4 +602,47 @@
         color: #e0e0e0;
         font-size: 20px;
     }
+    .abonnement-container {
+        margin: 20px 0 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgb(32, 32, 32);
+    }
+
+    .abonnement-container img {
+        width:auto;
+        height: 100px;
+        margin: 20px 5px;
+    }
+
+    .abonnement-item{
+        display:flex;
+        flex-direction: column;
+        margin:auto;
+        color:#e0e0e0;
+        width:95%;
+    }
+
+    .abonnement-item-foto{
+        display:flex;
+        flex-direction: row;
+        margin:auto;
+    }
+
+    .abonnement-item h1{
+        color:rgb(158, 154, 117);
+        background:none;
+        border:none;
+        margin:10px 0;
+        text-decoration:none;
+        font-size:17px;
+    }
+
+    .abonnement-item a{
+        color: indianred;
+    }
+
+    
 }
