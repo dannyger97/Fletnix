@@ -432,13 +432,14 @@
 
         padding-top: 30px;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: -15px;
+        left: -5px;
         z-index: 1;
 
     }
 
     .dropdown {
+        display: inline;
         position: relative;
         list-style: none;
     }
