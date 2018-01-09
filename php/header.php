@@ -18,8 +18,8 @@ echo "
                 <!-- gebruikers menu -->
                 <ul class=\"inlogsubmenu\">
                     <li><a href=\"\"> Profiel</a></li>
-                    <li><a href=\"\"> Account</a></li>
-                    <li><a href=\"\"> Logout</a></li>
+                    <li><a href=\"account.php\"> Account</a></li>
+                    <li><a href=\"uitlog.php\"> Logout</a></li>
                 </ul>
             </li>
         </ul>
