@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="57895171-e75a-42f4-9cd7-6eb375ba3186" name="localhost" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\Fletnix" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
