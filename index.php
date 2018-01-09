@@ -8,14 +8,14 @@
 </head>
 <body>
 <header>
-    <a href="index.html"><img class="logo" src="images/logo.png" alt="Fletnix logo"></a>
+    <a href="index.php"><img class="logo" src="images/logo.png" alt="Fletnix logo"></a>
     <div class="inlog">
         <ul>
             <li class="inlogmenu"><span class="gebruikersnaam">Gebruikersnaam &#9662;</span>
                 <!-- gebruikers menu -->
                 <ul class="inlogsubmenu">
-                    <li><a href="account.html"> Account</a></li>
-                    <li><a href="uitlog.html"> Logout</a></li>
+                    <li><a href="account.php"> Account</a></li>
+                    <li><a href="uitlog.php"> Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -23,21 +23,21 @@
     <div class="navigation-container">
         <ul class="navigation-items">
             <!-- Desktop menu -->
-            <li><a href="index.html"> Home</a></li>
-            <li><a href="filmoverzicht.html"> Filmoverzicht</a></li>
-            <li><a href="trailers.html"> Trailers</a></li>
-            <li><a href="abonnement.html"> Abonnement</a></li>
-            <li><a href="about.html"> Over ons</a></li>
+            <li><a href="index.php"> Home</a></li>
+            <li><a href="filmoverzicht.php"> Filmoverzicht</a></li>
+            <li><a href="trailers.php"> Trailers</a></li>
+            <li><a href="abonnement.php"> Abonnement</a></li>
+            <li><a href="about.php"> Over ons</a></li>
         </ul>
         <ul>
             <li class="dropdown"><span class="menutextlayout">Menu &#9662;</span>
                 <!-- Smartphone menu -->
                 <ul class="hidemenu submenu">
-                    <li><a href="index.html"> Home</a></li>
-                    <li><a href="filmoverzicht.html"> Filmoverzicht</a></li>
-                    <li><a href="trailers.html"> Trailers</a></li>
-                    <li><a href="abonnement.html"> Abonnement</a></li>
-                    <li><a href="about.html"> Over ons</a></li>
+                    <li><a href="index.php"> Home</a></li>
+                    <li><a href="filmoverzicht.php"> Filmoverzicht</a></li>
+                    <li><a href="trailers.php"> Trailers</a></li>
+                    <li><a href="abonnement.php"> Abonnement</a></li>
+                    <li><a href="about.php"> Over ons</a></li>
 
                 </ul>
             </li>
@@ -54,9 +54,9 @@
                 </p>
                 <h2>
                     Welke abonnementen biedt Fletnix u? Kijk hieronder! Voor meer details over de abonnementen
-                    <a href="abonnement.html">klik hier!</a><br/>
+                    <a href="abonnement.php">klik hier!</a><br/>
                     Een kijkje nemen naar de oorlogfilms die Fletnix aanbiedt?
-                    <a href="filmoverzicht.html">Klik hier!</a>
+                    <a href="filmoverzicht.php">Klik hier!</a>
                 </h2>
             </div>
             <div class="overlay">
@@ -73,7 +73,7 @@
                 Fletnix biedt drie soorten abonnementen aan. Daar zit voor elke persoon een prima pakket tussen.
                 Wilt u meer weten over de abonnementen? <br/> <br/>
             </p>
-            <a href="abonnement.html"> Ik wil meer weten!</a>
+            <a href="abonnement.php"> Ik wil meer weten!</a>
         </div>
         <div class="abonnement-item-foto">
             <img src="images/private-abonnement.jpg" alt="Private abonnement">

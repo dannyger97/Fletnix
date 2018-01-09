@@ -8,14 +8,14 @@
 </head>
 <body>
 <header>
-    <a href="index.html"><img class="logo" src="images/logo.png" alt="Fletnix logo"></a>
+    <a href="index.php"><img class="logo" src="images/logo.png" alt="Fletnix logo"></a>
     <div class="inlog">
         <ul>
             <li class="inlogmenu"><span class="gebruikersnaam">Gebruikersnaam &#9662;</span>
                 <!-- gebruikers menu -->
                 <ul class="inlogsubmenu">
-                    <li><a href="account.html"> Account</a></li>
-                    <li><a href="uitlog.html"> Logout</a></li>
+                    <li><a href="account.php"> Account</a></li>
+                    <li><a href="uitlog.php"> Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -23,21 +23,21 @@
     <div class="navigation-container">
         <ul class="navigation-items">
             <!-- Desktop menu -->
-            <li><a href="index.html"> Home</a></li>
-            <li><a href="filmoverzicht.html"> Filmoverzicht</a></li>
-            <li><a href="trailers.html"> Trailers</a></li>
-            <li><a href="abonnement.html"> Abonnement</a></li>
-            <li><a href="about.html"> Over ons</a></li>
+            <li><a href="index.php"> Home</a></li>
+            <li><a href="filmoverzicht.php"> Filmoverzicht</a></li>
+            <li><a href="trailers.php"> Trailers</a></li>
+            <li><a href="abonnement.php"> Abonnement</a></li>
+            <li><a href="about.php"> Over ons</a></li>
         </ul>
         <ul>
             <li class="dropdown"><span class="menutextlayout">Menu &#9662;</span>
                 <!-- Smartphone menu -->
                 <ul class="hidemenu submenu">
-                    <li><a href="index.html"> Home</a></li>
-                    <li><a href="filmoverzicht.html"> Filmoverzicht</a></li>
-                    <li><a href="trailers.html"> Trailers</a></li>
-                    <li><a href="abonnement.html"> Abonnement</a></li>
-                    <li><a href="about.html"> Over ons</a></li>
+                    <li><a href="index.php"> Home</a></li>
+                    <li><a href="filmoverzicht.php"> Filmoverzicht</a></li>
+                    <li><a href="trailers.php"> Trailers</a></li>
+                    <li><a href="abonnement.php"> Abonnement</a></li>
+                    <li><a href="about.php"> Over ons</a></li>
 
                 </ul>
             </li>
@@ -55,10 +55,10 @@
         <h1>Tweede Wereldoorlog</h1>
         <div class="index-item">
             <img src="images/filmoverzicht-dunkirk.jpg" alt="Dunkirk Cover Image">
-            <a href="hacksaw-ridge.html">
+            <a href="hacksaw-ridge.php">
                 <img src="images/filmoverzicht-hacksawridge.jpg" alt="Hacksaw Ridge Cover Image">
             </a>
-            <a href="saving-private-ryan.html">
+            <a href="saving-private-ryan.php">
                 <img src="images/filmoverzicht-savingprivateryan.jpg" alt="Saving Private Ryan Cover Image" >
             </a>
             <img src="images/filmoverzicht-fury.jpg" alt="Fury Cover Image">

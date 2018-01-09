@@ -8,14 +8,14 @@
 </head>
 <body>
 <header>
-    <a href="index.html"><img class="logo" src="images/logo.png" alt="Fletnix logo"></a>
+    <a href="index.php"><img class="logo" src="images/logo.png" alt="Fletnix logo"></a>
     <div class="inlog">
         <ul>
             <li class="inlogmenu"><span class="gebruikersnaam">Gebruikersnaam &#9662;</span>
                 <!-- gebruikers menu -->
                 <ul class="inlogsubmenu">
-                    <li><a href="account.html"> Account</a></li>
-                    <li><a href="uitlog.html"> Logout</a></li>
+                    <li><a href="account.php"> Account</a></li>
+                    <li><a href="uitlog.php"> Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -23,21 +23,21 @@
     <div class="navigation-container">
         <ul class="navigation-items">
             <!-- Desktop menu -->
-            <li><a href="index.html"> Home</a></li>
-            <li><a href="filmoverzicht.html"> Filmoverzicht</a></li>
-            <li><a href="trailers.html"> Trailers</a></li>
-            <li><a href="abonnement.html"> Abonnement</a></li>
-            <li><a href="about.html"> Over ons</a></li>
+            <li><a href="index.php"> Home</a></li>
+            <li><a href="filmoverzicht.php"> Filmoverzicht</a></li>
+            <li><a href="trailers.php"> Trailers</a></li>
+            <li><a href="abonnement.php"> Abonnement</a></li>
+            <li><a href="about.php"> Over ons</a></li>
         </ul>
         <ul>
             <li class="dropdown"><span class="menutextlayout">Menu &#9662;</span>
                 <!-- Smartphone menu -->
                 <ul class="hidemenu submenu">
-                    <li><a href="index.html"> Home</a></li>
-                    <li><a href="filmoverzicht.html"> Filmoverzicht</a></li>
-                    <li><a href="trailers.html"> Trailers</a></li>
-                    <li><a href="abonnement.html"> Abonnement</a></li>
-                    <li><a href="about.html"> Over ons</a></li>
+                    <li><a href="index.php"> Home</a></li>
+                    <li><a href="filmoverzicht.php"> Filmoverzicht</a></li>
+                    <li><a href="trailers.php"> Trailers</a></li>
+                    <li><a href="abonnement.php"> Abonnement</a></li>
+                    <li><a href="about.php"> Over ons</a></li>
 
                 </ul>
             </li>
@@ -55,7 +55,7 @@
                 Het scenario, dat geschreven werd door Andrew Knight en Robert Schenkkan, werd gebaseerd op het leven
                 van de militaire verpleger (medic) Desmond Doss. De hoofdrollen worden vertolkt door Andrew Garfield,
                 Sam Worthington, Luke Bracey, Teresa Palmer en Hugo Weaving. <br>
-                <a href="hacksaw-ridge.html">Hacksaw Ridge</a>
+                <a href="hacksaw-ridge.php">Hacksaw Ridge</a>
             </p>
             <br>
             <h3>Saving Private Ryan</h3>
@@ -66,7 +66,7 @@
                 goed ontvangen en hij staat hoog in meerdere filmtoplijsten. In de IMDb-top 250 heeft de film in
                 november 2015 een score van 8,5 uit 10 en het is daarmee op dat moment de op 29 na hoogstgewaardeerde
                 film ooit gemaakt. <br>
-                <a href="saving-private-ryan.html">Saving Private Ryan</a>
+                <a href="saving-private-ryan.php">Saving Private Ryan</a>
             </p>
         </div>
     </div>
