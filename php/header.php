@@ -5,7 +5,7 @@ echo "
 <html lang=\"nl\">
 <head>
     <meta charset=\"UTF-8\">
-    <title>".$title . "</title>
+    <title>" . $title . "</title>
     <link rel=\"stylesheet\" href=\"css/styles.css\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1\">
 </head>
@@ -14,7 +14,15 @@ echo "
     <a href=\"index.php\"><img class=\"logo\" src=\"images/logo.png\" alt=\"Fletnix logo\"></a>
     <div class=\"inlog\">
         <ul>
-            <li class=\"inlogmenu\"><span class=\"gebruikersnaam\">Gebruikersnaam &#9662;</span>
+            <li class=\"inlogmenu\"><span class=\"gebruikersnaam\">";
+if(isset($_SESSION['ingelogd'])){
+    echo $_SESSION['username'];
+}
+else{
+    echo "<li class='inlogmenu'><span class='gebruikersnaam'><a href='inlog.php'>Inloggen </a>&#9662;</span>";
+}
+
+echo "
                 <!-- gebruikers menu -->
                 <ul class=\"inlogsubmenu\">
                     <li><a href=\"\"> Profiel</a></li>
