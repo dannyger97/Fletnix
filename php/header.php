@@ -39,7 +39,6 @@ echo "
             <!-- Desktop menu -->
             <li><a href=\"index.php\"> Home</a></li>
             <li><a href=\"filmoverzicht.php\"> Filmoverzicht</a></li>
-            <li><a href=\"trailers.php\"> Trailers</a></li>
             <li><a href=\"abonnement.php\"> Abonnement</a></li>
             <li><a href=\"about.php\"> Over ons</a></li>
         </ul>
@@ -49,7 +48,6 @@ echo "
                 <ul class=\"hidemenu submenu\">
                     <li><a href=\"index.php\"> Home</a></li>
                     <li><a href=\"filmoverzicht.php\"> Filmoverzicht</a></li>
-                    <li><a href=\"trailers.php\"> Trailers</a></li>
                     <li><a href=\"abonnement.php\"> Abonnement</a></li>
                     <li><a href=\"about.php\"> Over ons</a></li>
 

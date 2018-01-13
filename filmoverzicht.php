@@ -12,7 +12,9 @@ require_once 'php/dbconnectie.php';
     $i = $query->fetchAll();
     foreach($i as $film){
         $image=$film['cover_image'];
-        echo '<img width=10% src="'.$image.'" >';
+        echo '<a href="filminformatie.php?movieid='.$film['movie_id'].'">
+            <img width=10% src="'.$image.'">
+            </a>';
     }
 ?>
 
