@@ -6,7 +6,7 @@ require_once 'php/dbconnectie.php';
 
 
 
-if(isset($_POST['username']) && isset($_POST['password'])){
+if(isset($_POST['submit'])){
     $emailadres= htmlspecialchars($_POST['email']);
     $username = htmlspecialchars($_POST['username']);
     $firstname = htmlspecialchars($_POST['firstname']);
@@ -181,7 +181,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                     <label for="commander">Commander</label>
                     <input type="radio" name="abonnement" id="commander" value="Commander"><br/>
                 </div>
-                <button>Verzenden</button>
+                <button type="submit" name="submit">Verzenden</button>
             </form>
         </div>
     </div>
