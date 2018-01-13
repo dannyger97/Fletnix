@@ -7,13 +7,13 @@ require_once 'php/dbconnectie.php';
 
 
 if(isset($_POST['username']) && isset($_POST['password'])){
-    $emailadres= $_POST['email'];
-    $username = $_POST['username'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+    $emailadres= htmlspecialchars($_POST['email']);
+    $username = htmlspecialchars($_POST['username']);
+    $firstname = htmlspecialchars($_POST['firstname']);
+    $lastname = htmlspecialchars($_POST['lastname']);
     $country = $_POST['country'];
     $payment = $_POST['payment'];
-    $cardnumber = $_POST['cardnumber'];
+    $cardnumber = htmlspecialchars($_POST['cardnumber']);
     $datum = new DateTime($_POST['birthdate']);
     $birthdate = date_format($datum,'Y-m-d');
     $gender = $_POST['gender'];
