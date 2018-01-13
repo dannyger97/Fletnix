@@ -1,10 +1,18 @@
 <?php
-$dbserver= '192.168.1.223';
-$dbname='fletnixphp';
+$dbserver= '192.168.65.3';
+$dbname='Fletnix';
 $dbusername='test';
 $dbpassword='test';
 
-$dbh = new PDO ("sqlsrv:Server=$dbserver;Database=$dbname;
+try {
+    $dbc = new PDO ("sqlsrv:Server=$dbserver;Database=$dbname;
 			ConnectionPooling=0", "$dbusername", "$dbpassword");
+    $dbc->setAttribute(PDO::ATTR_ERRMODE,
+        PDO::ERRMODE_EXCEPTION);
+}
 
+catch (PDOException $e){
+    echo 'Er ging iets mis met de database!';
+    echo "<br> Foutmelding: ". $e . "";
+}
 ?>

@@ -1,6 +1,39 @@
 <?php
 $title= 'Abonnement';
 include_once 'php/header.php';
+
+require_once 'php/dbconnectie.php';
+
+
+
+if(isset($_POST['username']) && isset($_POST['password'])){
+    $emailadres= $_POST['email'];
+    $username = $_POST['username'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $country = $_POST['country'];
+    $payment = $_POST['payment'];
+    $cardnumber = $_POST['cardnumber'];
+    $datum = new DateTime($_POST['birthdate']);
+    $birthdate = date_format($datum,'Y-m-d');
+    $gender = $_POST['gender'];
+    $password = password_hash($_POST['password'],PASSWORD_BCRYPT);
+    $abonnement = $_POST['abonnement'];
+    $startdate = date('Y-m-d');
+    $enddate= NULL;
+
+    $statement = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+    $query = $dbc->prepare($statement);
+    try{
+        $query->execute([$emailadres,$lastname,$firstname,$payment,$cardnumber,$abonnement,$startdate,$enddate,$username,$password,$country,$gender,$birthdate]);
+
+    }
+    catch(Exception $error){
+        echo "Error: $error";
+    }
+
+}
+
 ?>
 
 <main>
@@ -66,53 +99,68 @@ include_once 'php/header.php';
             </div>
             <h2>Aanmelden</h2>
             <br>
-            <form class="formulier" action="abonnement.php" id="aanmelding">
+            <form class="formulier" action="" method="post">
                 <div class="">
-                    <label for="voornaam">Voornaam</label>
-                    <input type="text" name="voornaam" id="voornaam" placeholder="Voornaam.."/>
+                    <label for="email">Emailadres</label>
+                    <input type="email" name="email" id="email" placeholder="E-mailadres.."/>
                 </div>
                 <div>
-                    <label for="achternaam">Achternaam</label>
-                    <input type="text" name="achternaam" id="achternaam" placeholder="Achternaam..">
+                    <label for="username">Gebruikersnaam</label>
+                    <input type="text" name="username" id="username" placeholder="Gebruikersnaam..">
+                </div>
+                <div class="">
+                    <label for="firstname">Voornaam</label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Voornaam.."/>
                 </div>
                 <div>
-                    <label for="land">Land</label>
-                    <select name="land" id="land">
-                        <option value="nederland">Nederland</option>
-                        <option value="belgië">België</option>
+                    <label for="lastname">Achternaam</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Achternaam..">
+                </div>
+                <div>
+                    <label for="country">Land</label>
+                    <select name="country" id="country">
+                        <option value="The Netherlands">The Netherlands</option>
+                        <option value="Belgium">Belgium</option>
                     </select>
                 </div>
                 <div>
-                    <label for="geboortedatum">Geboortedatum</label>
-                    <input type="date" name="geboortedatum" id="geboortedatum" max="2017-11-30">
+                    <label for="payment">Betalingsmethode</label>
+                    <select name="payment" id="payment">
+                        <option value="Visa">Visa</option>
+                        <option value="Mastercard">Mastercard</option>
+                    </select>
+                </div>
+                <div class="">
+                    <label for="cardnumber">Creditcardnummer</label>
+                    <input type="text" name="cardnumber" id="cardnumber" placeholder="Creditcardnumber.."/>
                 </div>
                 <div>
-                    <label for="rekeningnummer">Rekeningnummer</label>
-                    <input type="text" id="rekeningnummer" placeholder="Rekeningnummer.." name="rekeningnummer">
+                    <label for="birthdate">Geboortedatum</label>
+                    <input type="date" name="birthdate" id="birthdate" max="2018-01-12">
                 </div>
                 <div>
-                    <label for="gebruikersnaam">Gebruikersnaam</label>
-                    <input type="text" id="gebruikersnaam" name="gebruikersnaam" placeholder="Gebruikersnaam..">
+                    <label for="man">Man</label>
+                    <input type="radio" name="gender" id="gender" value="M">
+                    <label for="vrouw">Vrouw</label>
+                    <input type="radio" name="gender" id="gender" value="F">
                 </div>
                 <div>
                     <label for="wachtwoord">Wachtwoord</label>
-                    <input type="password" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord..">
+                    <input type="password" id="wachtwoord" name="password" placeholder="Wachtwoord..">
                 </div>
                 <div>
-                    <label for="wachtwoord2">Bevestig wachtwoord</label>
-                    <input type="password" id="wachtwoord2" name="wachtwoord2" placeholder="Bevestig wachtwoord..">
+                    <label for="wachtwoord2">Wachtwoord</label>
+                    <input type="password" id="wachtwoord2" name="confirmation" placeholder="Bevestig wachtwoord..">
                 </div>
                 <div>
                     <label for="private">Private</label>
-                    <input type="radio" name="abonnement" id="private" value="Private">
+                    <input type="radio" name="abonnement" id="private" value="Basic">
                     <label for="sergeant">Sergeant</label>
-                    <input type="radio" name="abonnement" id="sergeant" value="Sergeant">
+                    <input type="radio" name="abonnement" id="sergeant" value="Premium">
                     <label for="commander">Commander</label>
-                    <input type="radio" name="abonnement" id="commander" value="Commander"><br/>
+                    <input type="radio" name="abonnement" id="commander" value="Pro"><br/>
                 </div>
-                <div>
-                    <a href="abonnementformulieringevuld.php">Verzenden</a>
-                </div>
+                <button>Verzenden</button>
             </form>
         </div>
     </div>

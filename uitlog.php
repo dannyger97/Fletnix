@@ -1,6 +1,8 @@
 <?php
 $title= 'Uitlog';
 include_once 'php/header.php';
+session_start();
+session_destroy();
 ?>
 
 <main>

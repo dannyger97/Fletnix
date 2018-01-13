@@ -14,12 +14,14 @@ echo "
     <a href=\"index.php\"><img class=\"logo\" src=\"images/logo.png\" alt=\"Fletnix logo\"></a>
     <div class=\"inlog\">
         <ul>
-            <li class=\"inlogmenu\"><span class=\"gebruikersnaam\">";
+            ";
 if(isset($_SESSION['ingelogd'])){
-    echo $_SESSION['username'];
+    if($_SESSION['ingelogd']){
+        echo $_SESSION['username'];
+    }
 }
-else{
-    echo "<li class='inlogmenu'><span class='gebruikersnaam'><a href='inlog.php'>Inloggen </a>&#9662;</span>";
+elseif(!isset($_SESSION['ingelogd'])){
+    echo "<li class='inlogmenu'><span class='gebruikersnaam'><a class='inloggen' href='inlog.php'>Inloggen </a>&#9662;</span>";
 }
 
 echo "

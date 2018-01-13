@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
 }
+.inloggen{
+    color: #e0e0e0;
+    text-decoration: none;
+}
 
 /* Desktop only */
 @media screen and (min-width: 1081px) {
