@@ -24,7 +24,7 @@ echo "
             ";
 if(isset($_SESSION['loginstatus'])){
     if($_SESSION['loginstatus']){
-        echo " <li class='inlogmenu'><span class='gebruikersnaam'><a class='inloggen' href='inlog.php'> " . $_SESSION['username'] . "</a>&#9662;</span>";
+        echo " <li class='inlogmenu'><span class='gebruikersnaam'><a class='inloggen' href='account.php'> " . $_SESSION['username'] . "</a>&#9662;</span>";
     }
 }
 elseif(!isset($_SESSION['loginstatus'])){
@@ -34,7 +34,6 @@ elseif(!isset($_SESSION['loginstatus'])){
 echo "
                 <!-- gebruikers menu -->
                 <ul class=\"inlogsubmenu\">
-                    <li><a href=\"\"> Profiel</a></li>
                     <li><a href=\"account.php\"> Account</a></li>
                     <li><a href=\"uitlog.php\"> Logout</a></li>
                 </ul>

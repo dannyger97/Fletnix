@@ -6,7 +6,7 @@ if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 
-    if($_SESSION['ingelogd'] == 1 && isset($_SESSION['username'])){
+    if($_SESSION['loginstatus'] == 1 && isset($_SESSION['username'])){
         require_once 'php/dbconnectie.php';
 
         $statement = "SELECT customer_mail_address,firstname,lastname,payment_method,

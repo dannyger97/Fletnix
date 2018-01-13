@@ -1,10 +1,16 @@
 <?php
 $title= 'Uitlog';
 include_once 'php/header.php';
-if (session_status() == PHP_SESSION_ACTIVE) {
-    session_unset();
-    session_destroy();
+if(isset($_SESSION['loginstatus'])){
+    if (session_status() == PHP_SESSION_ACTIVE) {
+        session_unset();
+        session_destroy();
+    }
 }
+else{
+    header('Location: inlog.php');
+}
+
 ?>
 
 <main>
