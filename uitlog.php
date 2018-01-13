@@ -1,8 +1,9 @@
 <?php
 $title= 'Uitlog';
 include_once 'php/header.php';
-session_start();
-session_destroy();
+if (session_status() == PHP_SESSION_ACTIVE) {
+    session_destroy();
+}
 ?>
 
 <main>
