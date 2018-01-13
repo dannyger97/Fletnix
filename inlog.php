@@ -4,18 +4,24 @@ include_once 'php/header.php';
 
 require_once 'php/dbconnectie.php';
 
+$check = true;
+
 if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $statement = "SELECT count(*) FROM Customer WHERE username = ? AND password = ? ";
+    $statement = "SELECT password FROM Customer WHERE username = ? ";
     $query = $dbc->prepare($statement);
     $query->execute([$username,$password]);
     $gegevens = $query->fetchColumn();
-    if($gegevens == 1){
+    if(password_verify($password,$gegevens)){
         $_SESSION['ingelogd'] = true;
         $_SESSION['username'] = $username;
         header('Location: index.php');
+        $check = true;
+    }
+    else{
+        $check = false;
     }
 
 
@@ -28,7 +34,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                 <h1>Inloggen</h1>
                 <br>
                 <form class='formulier' action='' method='post'>
-                    <?php if(isset($gegevens)){ if(!$gegevens == 1){echo "De combinatie gebruikersnaam/wachtwoord klopt niet.";}} ?>
+                    <?php if(!$check){echo "<p class='verkeerd' >De combinatie gebruikersnaam/wachtwoord klopt niet.</p>";} ?>
                     <label for='username'>Gebruikersnaam</label>
                     <input type='text' name='username' id='username'/>
                     <label for='password'>Wachtwoord</label>

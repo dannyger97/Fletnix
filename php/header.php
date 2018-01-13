@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 echo "
 <!DOCTYPE html>
 <html lang=\"nl\">
@@ -17,7 +17,7 @@ echo "
             ";
 if(isset($_SESSION['ingelogd'])){
     if($_SESSION['ingelogd']){
-        echo $_SESSION['username'];
+        echo " <li class='inlogmenu'><span class='gebruikersnaam'><a class='inloggen' href='inlog.php'> " . $_SESSION['username'] . "</a>&#9662;</span>";
     }
 }
 elseif(!isset($_SESSION['ingelogd'])){

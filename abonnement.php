@@ -17,20 +17,33 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $datum = new DateTime($_POST['birthdate']);
     $birthdate = date_format($datum,'Y-m-d');
     $gender = $_POST['gender'];
-    $password = password_hash($_POST['password'],PASSWORD_BCRYPT);
+    $password = $_POST['password'];
     $abonnement = $_POST['abonnement'];
     $startdate = date('Y-m-d');
     $enddate= NULL;
 
     $statement = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
     $query = $dbc->prepare($statement);
-    try{
-        $query->execute([$emailadres,$lastname,$firstname,$payment,$cardnumber,$abonnement,$startdate,$enddate,$username,$password,$country,$gender,$birthdate]);
 
+    if ($_POST['password']!= $_POST['confirmation'])
+    {
+        $passworderror = true ;
+    }else{
+        try{
+            $password= password_hash($password,PASSWORD_BCRYPT);
+            $query->execute([$emailadres,$lastname,$firstname,$payment,$cardnumber,$abonnement,$startdate,$enddate,$username,$password,$country,$gender,$birthdate]);
+
+        }
+        catch(Exception $error){
+            echo "Error: $error";
+        }
+        if(!isset($error)){
+            header('Location:inlog.php');
+        }
     }
-    catch(Exception $error){
-        echo "Error: $error";
-    }
+
+
+
 
 }
 
@@ -145,6 +158,14 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                     <input type="radio" name="gender" id="gender" value="F">
                 </div>
                 <div>
+                    <p>
+                        <?php if(isset($passworderror)) {
+                                echo("<p class='verkeerd'>De ingevoerde wachtwoorden zijn niet gelijk! Probeer het nog een keer.</p> ");
+                            }
+                        ?>
+                    </p>
+                </div>
+                <div>
                     <label for="wachtwoord">Wachtwoord</label>
                     <input type="password" id="wachtwoord" name="password" placeholder="Wachtwoord..">
                 </div>
@@ -154,11 +175,11 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                 </div>
                 <div>
                     <label for="private">Private</label>
-                    <input type="radio" name="abonnement" id="private" value="Basic">
+                    <input type="radio" name="abonnement" id="private" value="Private">
                     <label for="sergeant">Sergeant</label>
-                    <input type="radio" name="abonnement" id="sergeant" value="Premium">
+                    <input type="radio" name="abonnement" id="sergeant" value="Sergeant">
                     <label for="commander">Commander</label>
-                    <input type="radio" name="abonnement" id="commander" value="Pro"><br/>
+                    <input type="radio" name="abonnement" id="commander" value="Commander"><br/>
                 </div>
                 <button>Verzenden</button>
             </form>
