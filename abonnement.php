@@ -1,52 +1,51 @@
 <?php
-$title= 'Abonnement';
+$title = 'Abonnement';
 include_once 'php/header.php';
 
 require_once 'php/dbconnectie.php';
 
+if (!isset($_GET['signuperror'])) {
+    $_GET['signuperror'] = '';
+}
 
-
-if(isset($_POST['submit'])){
-    $emailadres= htmlspecialchars($_POST['email']);
+if (isset($_POST['submit'])) {
+    $emailadres = htmlspecialchars($_POST['email']);
     $username = htmlspecialchars($_POST['username']);
-    $firstname = htmlspecialchars($_POST['firstname']);
-    $lastname = htmlspecialchars($_POST['lastname']);
+    $firstname = htmlspecialchars(ucfirst($_POST['firstname']));
+    $lastname = htmlspecialchars(ucfirst($_POST['lastname']));
     $country = $_POST['country'];
     $payment = $_POST['payment'];
     $cardnumber = htmlspecialchars($_POST['cardnumber']);
     $datum = new DateTime($_POST['birthdate']);
-    $birthdate = date_format($datum,'Y-m-d');
+    $birthdate = date_format($datum, 'Y-m-d');
     $gender = $_POST['gender'];
     $password = $_POST['password'];
+    $confirmation = $_POST['confirmation'];
     $abonnement = $_POST['abonnement'];
     $startdate = date('Y-m-d');
-    $enddate= NULL;
+    $enddate = NULL;
 
     $statement = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
     $query = $dbc->prepare($statement);
 
-    if ($_POST['password']!= $_POST['confirmation'])
-    {
-        $passworderror = true ;
-    }else{
-        try{
-            $password= password_hash($password,PASSWORD_BCRYPT);
-            $query->execute([$emailadres,$lastname,$firstname,$payment,$cardnumber,$abonnement,$startdate,$enddate,$username,$password,$country,$gender,$birthdate]);
-
-        }
-        catch(Exception $error){
+    if (empty($emailadres) || empty($username) || empty($firstname) || empty($lastname) || empty($cardnumber) || empty($birthdate) || empty($gender) || empty($password) || empty($password) || empty($confirmation)) {
+        header("Location:abonnement.php?signuperror=empty&firstname=$firstname&lastname=$lastname&cardnumber=$cardnumber");
+    } elseif ($password != $confirmation) {
+        header("Location:abonnement.php?signuperror=password&firstname=$firstname&lastname=$lastname");
+    } elseif (!filter_var($emailadres, FILTER_VALIDATE_EMAIL)) {
+        header("Location:abonnement.php?signuperror=emailadres&firstname=$firstname&lastname=$lastname");
+    } else {
+        try {
+            $password = password_hash($password, PASSWORD_BCRYPT);
+            $query->execute([$emailadres, $lastname, $firstname, $payment, $cardnumber, $abonnement, $startdate, $enddate, $username, $password, $country, $gender, $birthdate]);
+        } catch (Exception $error) {
             echo "Error: $error";
         }
-        if(!isset($error)){
+        if (!isset($error)) {
             header('Location:inlog.php');
         }
     }
-
-
-
-
 }
-
 ?>
 
 <main>
@@ -56,7 +55,8 @@ if(isset($_POST['submit'])){
             <p>
                 Wij van Fletnix bieden zeer mooie abonnementen aan voor voordelige prijzen. De drie abonnementen die wij
                 aanbieden zijn 'Private', 'Sergeant' en 'Commander'. Private is de voordeligste van de drie pakketten,
-                maar heeft alles wat de dagelijkse soldaat nodig heeft. Sergeant is de middenweg en heeft toch een beetje
+                maar heeft alles wat de dagelijkse soldaat nodig heeft. Sergeant is de middenweg en heeft toch een
+                beetje
                 extra kaliber vergeleken met het Private-abonnement. Voor de ultieme krijgers onder ons is er het
                 Commander-pakket. Dit is het beste pakket, maar daar hangt natuurlijk ook een duurder prijskaartje aan.
                 Hopelijk zit er wat leuks tussen voor u!
@@ -112,6 +112,18 @@ if(isset($_POST['submit'])){
             </div>
             <h2>Aanmelden</h2>
             <br>
+            <p>
+                <?php if ($_GET['signuperror'] == 'empty') {
+                    echo("<p class='error'>Niet alle velden zijn ingevoerd! Probeer het nog een keer.</p> <br>");
+                }
+                if ($_GET['signuperror'] == 'emailadres') {
+                    echo("<p class='error'>Dit is geen juist emailadres! Probeer het nog een keer.</p> <br>");
+                }
+                if ($_GET['signuperror'] == 'password') {
+                    echo("<p class='error'>De wachtwoorden zijn niet gelijk! Probeer het nog een keer.</p> <br>");
+                }
+                ?>
+            </p>
             <form class="formulier" action="" method="post">
                 <div class="">
                     <label for="email">Emailadres</label>
@@ -123,11 +135,23 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="">
                     <label for="firstname">Voornaam</label>
-                    <input type="text" name="firstname" id="firstname" placeholder="Voornaam.."/>
+                    <?php
+                    if (isset($_GET['firstname'])) {
+                        $firstname = $_GET['firstname'];
+                        echo "<input type='text' name='firstname' id='firstname' value='$firstname' />";
+                    } else {
+                        echo '<input type="text" name="firstname" id="firstname" placeholder="Voornaam.."/>';
+                    }?>
                 </div>
                 <div>
                     <label for="lastname">Achternaam</label>
-                    <input type="text" name="lastname" id="lastname" placeholder="Achternaam..">
+                    <?php
+                    if (isset($_GET['lastname'])) {
+                        $lastname = $_GET['lastname'];
+                        echo "<input type='text' name='lastname' id='lastname' value='$lastname' />";
+                    } else {
+                        echo '<input type="text" name="lastname" id="lastname" placeholder="Achternaam..">';
+                    }?>
                 </div>
                 <div>
                     <label for="country">Land</label>
@@ -145,25 +169,25 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="">
                     <label for="cardnumber">Creditcardnummer</label>
-                    <input type="text" name="cardnumber" id="cardnumber" placeholder="Creditcardnumber.."/>
+                    <?php
+                    if (isset($_GET['cardnumber'])) {
+                        $cardnumber = $_GET['cardnumber'];
+                        echo "<input type='text' name='cardnumber' id='cardnumber' value='$cardnumber' />";
+                    } else {
+                        echo '<input type="text" name="cardnumber" id="cardnumber" placeholder="Creditcardnummer.."/>';
+                    }?>
                 </div>
                 <div>
                     <label for="birthdate">Geboortedatum</label>
-                    <input type="date" name="birthdate" id="birthdate" max="2018-01-12">
+                    <input type="date" name="birthdate" id="birthdate" max="<?php date('Y-m-d') ?>">
                 </div>
                 <div>
                     <label for="man">Man</label>
-                    <input type="radio" name="gender" id="gender" value="M">
+                    <input type="radio" name="gender" id="man" value="M">
                     <label for="vrouw">Vrouw</label>
-                    <input type="radio" name="gender" id="gender" value="F">
+                    <input type="radio" name="gender" id="vrouw" value="F">
                 </div>
                 <div>
-                    <p>
-                        <?php if(isset($passworderror)) {
-                                echo("<p class='verkeerd'>De ingevoerde wachtwoorden zijn niet gelijk! Probeer het nog een keer.</p> ");
-                            }
-                        ?>
-                    </p>
                 </div>
                 <div>
                     <label for="wachtwoord">Wachtwoord</label>

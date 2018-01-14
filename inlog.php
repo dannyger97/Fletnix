@@ -4,7 +4,7 @@ include_once 'php/header.php';
 require_once 'php/dbconnectie.php';
 
 if(!isset($_GET['login'])){
-    $_GET['login'] = NULL;
+    $_GET['login'] = '';
 }
 
 if (isset($_POST['submit'])) {
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
             <br>
             <form class='formulier' action='' method='post'>
                 <?php if ($_GET['login'] == 'password') {
-                    echo "<p class='verkeerd' >De combinatie gebruikersnaam/wachtwoord klopt niet.</p>";
+                    echo "<p class='error' >De combinatie gebruikersnaam/wachtwoord klopt niet.</p>";
                 } ?>
                 <label for='username'>Gebruikersnaam</label>
                 <input type='text' name='username' id='username'/>
