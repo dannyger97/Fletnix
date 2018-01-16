@@ -30,21 +30,20 @@ if(session_status() == PHP_SESSION_NONE){
             foreach($data as $temp){
                 $accountgegevens[] = $temp;
             }
-
-            echo "<table class='account'>";
-            $tabel = '';
+            $accounttabel ='';
+            $accounttabel .= "<table class='account'>";
             for($i = 0 ; $i < count($tabel); $i++){
-                 $tabel += "<tr>";
-                 $tabel += "<th>$tabel[$i]</th>";
-                 $tabel += "<td>$accountgegevens[$i]</td>";
-                 $tabel += "</tr>";
+                 $accounttabel .= "<tr>";
+                 $accounttabel .= "<th>$tabel[$i]</th>";
+                 $accounttabel .= "<td>$accountgegevens[$i]</td>";
+                 $accounttabel .= "</tr>";
 
             }
-            $tabel += "<tr>";
-            $tabel += "<th>Ingelogd op</th>";
-            $tabel += "<td>" . $data['firstname'] . " " . $data['lastname'] . " is ingelogd op " . strftime($_SESSION['logindatum'])  . " "  . $_SESSION['logintijd'] . "  </td>";
-            $tabel += "</tr></table>";
-            echo $tabel;
+            $accounttabel .= "<tr>";
+            $accounttabel .= "<th>Ingelogd op</th>";
+            $accounttabel .= "<td>" . $data['firstname'] . " " . $data['lastname'] . " is ingelogd op " . strftime($_SESSION['logindatum'])  . " "  . $_SESSION['logintijd'] . "  </td>";
+            $accounttabel .= "</tr></table>";
+            echo $accounttabel;
             ?>
             <br>
         </div>
