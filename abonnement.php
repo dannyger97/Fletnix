@@ -38,15 +38,20 @@ if (isset($_POST['submit'])) {
         try {
             $password = password_hash($password, PASSWORD_BCRYPT);
             $query->execute([$emailadres, $lastname, $firstname, $payment, $cardnumber, $abonnement, $startdate, $enddate, $username, $password, $country, $gender, $birthdate]);
-        }
-        catch(PDOException $error){
-            if($error->errorInfo[0] == 23000){
+        } catch (PDOException $error) {
+            if ($error->errorInfo[0] == 23000) {
                 header('Location:abonnement.php?signuperror=duplicateemail');
-            }
-            else{
-                echo "Er ging iets fout met de database.";
+                if (strpos()){
+
+                }
+                if (strpos()){
+
+                }
+            } else {
+                echo "Er ging iets fout met de database. $error";
             }
         }
+
         if (!isset($error)) {
             header('Location:inlog.php');
         }
@@ -145,12 +150,12 @@ if (isset($_POST['submit'])) {
                 <div class="">
                     <label for="firstname">Voornaam</label>
                     <?php
-                    if(isset($_GET['firstname']) && !empty($_GET['firstname'])){
+                    if (isset($_GET['firstname']) && !empty($_GET['firstname'])) {
                         $firstname = $_GET['firstname'];
                         echo "<input type='text' name='firstname' id='firstname' value='$firstname'/>";
                     } else {
                         echo '<input type="text" name="firstname" id="firstname" placeholder="Voornaam.."/>';
-                    }?>
+                    } ?>
                 </div>
                 <div>
                     <label for="lastname">Achternaam</label>
@@ -160,7 +165,7 @@ if (isset($_POST['submit'])) {
                         echo "<input type='text' name='lastname' id='lastname' value='$lastname' />";
                     } else {
                         echo '<input type="text" name="lastname" id="lastname" placeholder="Achternaam..">';
-                    }?>
+                    } ?>
                 </div>
                 <div>
                     <label for="country">Land</label>
@@ -184,7 +189,7 @@ if (isset($_POST['submit'])) {
                         echo "<input type='text' name='cardnumber' id='cardnumber' value='$cardnumber' />";
                     } else {
                         echo '<input type="text" name="cardnumber" id="cardnumber" placeholder="Creditcardnummer.."/>';
-                    }?>
+                    } ?>
                 </div>
                 <div>
                     <label for="birthdate">Geboortedatum</label>
