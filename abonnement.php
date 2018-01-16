@@ -136,9 +136,9 @@ if (isset($_POST['submit'])) {
                 <div class="">
                     <label for="firstname">Voornaam</label>
                     <?php
-                    if (isset($_GET['firstname'])) {
+                    if(isset($_GET['firstname']) && !empty($_GET['firstname'])){
                         $firstname = $_GET['firstname'];
-                        echo "<input type='text' name='firstname' id='firstname' value='$firstname' />";
+                        echo "<input type='text' name='firstname' id='firstname' value='$firstname'/>";
                     } else {
                         echo '<input type="text" name="firstname" id="firstname" placeholder="Voornaam.."/>';
                     }?>
@@ -146,7 +146,7 @@ if (isset($_POST['submit'])) {
                 <div>
                     <label for="lastname">Achternaam</label>
                     <?php
-                    if (isset($_GET['lastname'])) {
+                    if (isset($_GET['lastname']) && !empty($_GET['lastname'])) {
                         $lastname = $_GET['lastname'];
                         echo "<input type='text' name='lastname' id='lastname' value='$lastname' />";
                     } else {
@@ -170,7 +170,7 @@ if (isset($_POST['submit'])) {
                 <div class="">
                     <label for="cardnumber">Creditcardnummer</label>
                     <?php
-                    if (isset($_GET['cardnumber'])) {
+                    if (isset($_GET['cardnumber']) && !empty($_GET['cardnumber'])) {
                         $cardnumber = $_GET['cardnumber'];
                         echo "<input type='text' name='cardnumber' id='cardnumber' value='$cardnumber' />";
                     } else {
@@ -179,7 +179,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div>
                     <label for="birthdate">Geboortedatum</label>
-                    <input type="date" name="birthdate" id="birthdate" max="<?php date('Y-m-d') ?>">
+                    <input type="date" name="birthdate" id="birthdate" max="<?php echo "date('Y-m-d')"; ?>">
                 </div>
                 <div>
                     <label for="man">Man</label>
