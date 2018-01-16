@@ -31,26 +31,21 @@ if(session_status() == PHP_SESSION_NONE){
                 $accountgegevens[] = $temp;
             }
 
-
-
-
             echo "<table class='account'>";
+            $tabel = '';
             for($i = 0 ; $i < count($tabel); $i++){
-                echo "
-                    <tr>
-                        <th>$tabel[$i]</th>
-                        <td>$accountgegevens[$i]</td>
-                    </tr>
-                ";
+                 $tabel += "<tr>";
+                 $tabel += "<th>$tabel[$i]</th>";
+                 $tabel += "<td>$accountgegevens[$i]</td>";
+                 $tabel += "</tr>";
+
             }
-            echo "
-                    <tr>
-                        <th>Ingelogd op</th>
-                        <td>" . $data['firstname'] . " " . $data['lastname'] . " is ingelogd op " . strftime($_SESSION['logindatum'])  . " "  . $_SESSION['logintijd'] . "  </td>
-                    </tr>
-                 ";
-            echo "</table>";
-     ?>
+            $tabel += "<tr>";
+            $tabel += "<th>Ingelogd op</th>";
+            $tabel += "<td>" . $data['firstname'] . " " . $data['lastname'] . " is ingelogd op " . strftime($_SESSION['logindatum'])  . " "  . $_SESSION['logintijd'] . "  </td>";
+            $tabel += "</tr></table>";
+            echo $tabel;
+            ?>
             <br>
         </div>
     </div>
