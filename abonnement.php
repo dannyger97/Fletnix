@@ -40,12 +40,17 @@ if (isset($_POST['submit'])) {
             $query->execute([$emailadres, $lastname, $firstname, $payment, $cardnumber, $abonnement, $startdate, $enddate, $username, $password, $country, $gender, $birthdate]);
         } catch (PDOException $error) {
             if ($error->errorInfo[0] == 23000) {
-                header('Location:abonnement.php?signuperror=duplicateemail');
-                if (strpos()){
-
+                $errormessage = $error->getMessage();
+                $emailerror = 'Violation of PRIMARY KEY';
+                $usernameerror = 'Violation of UNIQUE KEY';
+                if (strpos($errormessage,$emailerror) !== FALSE){
+                    header('Location:abonnement.php?signuperror=duplicateemail');
                 }
-                if (strpos()){
-
+                if (strpos($errormessage,$usernameerror) !== FALSE){
+                    header('Location:abonnement.php?signuperror=duplicateusername');
+                }
+                else{
+                    echo "Er ging iets fout met de database. $error";
                 }
             } else {
                 echo "Er ging iets fout met de database. $error";
@@ -135,6 +140,9 @@ if (isset($_POST['submit'])) {
                 }
                 if ($_GET['signuperror'] == 'duplicateemail') {
                     echo("<p class='error'>Het ingevoerde emailadres is al bezet. Probeer het met een ander emailadres.</p> <br>");
+                }
+                if ($_GET['signuperror'] == 'duplicateusername') {
+                    echo("<p class='error'>De ingevoerde gebruikersnaam is al bezet. Probeer het met een andere gebruikersnaam.</p> <br>");
                 }
                 ?>
             </p>
