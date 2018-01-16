@@ -15,11 +15,10 @@ $query = $dbc->prepare($beschrijving);
 $query->execute([$movieid]);
 $gegevens = $query->fetchAll();
 
-$cast= "SELECT firstname,lastname, role FROM Movie_Cast INNER JOIN Person ON Movie_Cast.person_id=Person.person_id WHERE movie_id=?";
+$cast= "SELECT firstname+ ' ' +lastname AS Name, role FROM Movie_Cast INNER JOIN Person ON Movie_Cast.person_id=Person.person_id WHERE movie_id=?";
 $query=$dbc->prepare($cast);
 $query->execute([$movieid]);
 $gegevenscast=$query->fetchAll();
-
 
 echo $gegevens[0]['title'].'</h1>';
 echo '<img src="'.$gegevens [0]['cover_image'].'"';
@@ -28,7 +27,20 @@ echo '<p>Beschrijving: '.$gegevens[0]['description'].'</p>';
 echo '<p>Jaar van publicatie: '.$gegevens[0]['publication_year'].'</p>';
 echo '<p>Prijs: '.$gegevens[0]['price'].'</p>';
 echo '<a href="'. $gegevens[0]['URL'].'">Trailer</a><br>';
-echo '<h2>Cast</h2>';
+if(!empty($gegevenscast)) {
+    echo '<h2>Cast</h2>';
+    $casttabel = '';
+    $casttabel .= '<table> <tr><th>Naam</th><th>Role</th></tr>';
+    for ($i = 0; $i < count($gegevenscast); $i++) {
+        $casttabel .= "<tr>";
+        $casttabel .= "<th>" . $gegevenscast[$i][0] . "</th>";
+        $casttabel .= "<td>" . $gegevenscast[$i][1] . "</td>";
+        $casttabel .= "</tr>";
+
+    }
+    $casttabel .= '</table>';
+    echo $casttabel;
+}
 ?>
         </div>
     </div>
