@@ -171,6 +171,12 @@
         background-color: rgb(158, 154, 117);
     }
 
+    .content img {
+        width:30%;
+        margin:5px auto;
+        border: 2px solid black;
+    }
+
     .content form {
         width: 50%;
         margin-top: -10px;
@@ -600,6 +606,7 @@
     .content p {
         font-size: 15px
     }
+
 
     .geslacht-container {
         margin-top: 10px;
