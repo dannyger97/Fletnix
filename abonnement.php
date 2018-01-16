@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
     $statement = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
     $query = $dbc->prepare($statement);
 
-    if (empty($emailadres) || empty($username) || empty($firstname) || empty($lastname) || empty($cardnumber) || empty($birthdate) || empty($gender) || empty($password) || empty($password) || empty($confirmation)) {
+    if (empty(trim($emailadres)) || empty(trim($username)) || empty(trim($firstname)) || empty(trim($lastname)) || empty(trim($cardnumber)) || empty(trim($birthdate)) || empty(trim($gender)) || empty(trim($password)) || empty(trim($password)) || empty(trim($confirmation))) {
         header("Location:abonnement.php?signuperror=empty&firstname=$firstname&lastname=$lastname&cardnumber=$cardnumber");
     } elseif ($password != $confirmation) {
         header("Location:abonnement.php?signuperror=password&firstname=$firstname&lastname=$lastname");
