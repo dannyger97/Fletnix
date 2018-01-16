@@ -3,6 +3,8 @@ $title = 'Inlogpagina';
 include_once 'php/header.php';
 require_once 'php/dbconnectie.php';
 
+setlocale(LC_ALL, 'nl_NL');
+
 if(!isset($_GET['login'])){
     $_GET['login'] = '';
 }

@@ -38,8 +38,14 @@ if (isset($_POST['submit'])) {
         try {
             $password = password_hash($password, PASSWORD_BCRYPT);
             $query->execute([$emailadres, $lastname, $firstname, $payment, $cardnumber, $abonnement, $startdate, $enddate, $username, $password, $country, $gender, $birthdate]);
-        } catch (Exception $error) {
-            echo "Error: $error";
+        }
+        catch(PDOException $error){
+            if($error->errorInfo[0] == 23000){
+                header('Location:abonnement.php?signuperror=duplicateemail');
+            }
+            else{
+                echo "Er ging iets fout met de database.";
+            }
         }
         if (!isset($error)) {
             header('Location:inlog.php');
@@ -121,6 +127,9 @@ if (isset($_POST['submit'])) {
                 }
                 if ($_GET['signuperror'] == 'password') {
                     echo("<p class='error'>De wachtwoorden zijn niet gelijk! Probeer het nog een keer.</p> <br>");
+                }
+                if ($_GET['signuperror'] == 'duplicateemail') {
+                    echo("<p class='error'>Het ingevoerde emailadres is al bezet. Probeer het met een ander emailadres.</p> <br>");
                 }
                 ?>
             </p>

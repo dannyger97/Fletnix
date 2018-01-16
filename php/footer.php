@@ -2,7 +2,7 @@
 echo "
 <footer>
     <h4>
-        &copy; - Danny Gerritsen en Wout Hakvoort - 2017
+        &copy; - Danny Gerritsen en Wout Hakvoort - 2018
 </h4>
 </footer>
 </body>

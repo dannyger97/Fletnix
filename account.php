@@ -1,17 +1,17 @@
 <?php
 $title= 'Account';
 include_once 'php/header.php';
-
+setlocale(LC_ALL, 'nl_NL');
+date_default_timezone_set('Europe/Amsterdam	');
 if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 
     if($_SESSION['loginstatus'] == 1 && isset($_SESSION['username'])){
         require_once 'php/dbconnectie.php';
-
         $statement = "SELECT customer_mail_address,firstname,lastname,payment_method,
-                      payment_card_number,contract_type,subscription_start,subscription_end,username,country_name,gender,birth_date 
-                      FROM Customer WHERE username = ?";
+                  payment_card_number,contract_type,subscription_start,subscription_end,username,country_name,gender,birth_date 
+                  FROM Customer WHERE username = ?";
         $query = $dbc->prepare($statement);
         $query->execute([$_SESSION['username']]);
         $data = $query->fetch(PDO::FETCH_ASSOC);
@@ -50,7 +50,7 @@ if(session_status() == PHP_SESSION_NONE){
             echo "
                     <tr>
                         <th>Ingelogd op</th>
-                        <td>" . $data['firstname'] . " " . $data['lastname'] . " is ingelogd op " . $_SESSION['logindatum']  . " "  . $_SESSION['logintijd'] . "  </td>
+                        <td>" . $data['firstname'] . " " . $data['lastname'] . " is ingelogd op " . strftime($_SESSION['logindatum'])  . " "  . $_SESSION['logintijd'] . "  </td>
                     </tr>
                  ";
             echo "</table>";
