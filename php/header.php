@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if (isset($_SESSION['laatsteactiviteit']) && (time() - $_SESSION['laatsteactiviteit'] > 1800 )) {
+    session_unset();
+    session_destroy();
+}
+$_SESSION['laatsteactiviteit'] = time();
+
 echo "
 <!DOCTYPE html>
 <html lang=\"nl\">
@@ -15,19 +22,18 @@ echo "
     <div class=\"inlog\">
         <ul>
             ";
-if(isset($_SESSION['ingelogd'])){
-    if($_SESSION['ingelogd']){
-        echo " <li class='inlogmenu'><span class='gebruikersnaam'><a class='inloggen' href='inlog.php'> " . $_SESSION['username'] . "</a>&#9662;</span>";
+if(isset($_SESSION['loginstatus'])){
+    if($_SESSION['loginstatus']){
+        echo " <li class='inlogmenu'><span class='gebruikersnaam'><a class='inloggen' href='account.php'> " . $_SESSION['username'] . "</a>&#9662;</span>";
     }
 }
-elseif(!isset($_SESSION['ingelogd'])){
+elseif(!isset($_SESSION['loginstatus'])){
     echo "<li class='inlogmenu'><span class='gebruikersnaam'><a class='inloggen' href='inlog.php'>Inloggen </a>&#9662;</span>";
 }
 
 echo "
                 <!-- gebruikers menu -->
                 <ul class=\"inlogsubmenu\">
-                    <li><a href=\"\"> Profiel</a></li>
                     <li><a href=\"account.php\"> Account</a></li>
                     <li><a href=\"uitlog.php\"> Logout</a></li>
                 </ul>

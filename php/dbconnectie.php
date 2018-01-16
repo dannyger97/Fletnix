@@ -1,8 +1,8 @@
 <?php
-$dbserver= '192.168.65.3';
-$dbname='Fletnix';
-$dbusername='test';
-$dbpassword='test';
+$dbserver= '192.168.1.223';
+$dbname='FletnixPHP';
+$dbusername='sa';
+$dbpassword='Welkom01!dg';
 
 try {
     $dbc = new PDO ("sqlsrv:Server=$dbserver;Database=$dbname;
