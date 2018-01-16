@@ -1,13 +1,12 @@
 <?php
 $title= 'Account';
 include_once 'php/header.php';
-setlocale(LC_ALL, 'nl_NL');
-date_default_timezone_set('Europe/Amsterdam	');
+setlocale(LC_ALL, 'nl-NL');
 if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 
-    if($_SESSION['loginstatus'] == 1 && isset($_SESSION['username'])){
+    if($_SESSION['loginstatus'] == TRUE && isset($_SESSION['username'])){
         require_once 'php/dbconnectie.php';
         $statement = "SELECT customer_mail_address,firstname,lastname,payment_method,
                   payment_card_number,contract_type,subscription_start,subscription_end,username,country_name,gender,birth_date 
@@ -19,11 +18,6 @@ if(session_status() == PHP_SESSION_NONE){
     else{
         header('Location: inlog.php');
     }
-
-
-
-
-
 ?>
 
 <main>
@@ -38,6 +32,8 @@ if(session_status() == PHP_SESSION_NONE){
             }
 
 
+
+
             echo "<table class='account'>";
             for($i = 0 ; $i < count($tabel); $i++){
                 echo "
@@ -47,6 +43,7 @@ if(session_status() == PHP_SESSION_NONE){
                     </tr>
                 ";
             }
+            echo  ;
             echo "
                     <tr>
                         <th>Ingelogd op</th>
