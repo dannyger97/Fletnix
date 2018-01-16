@@ -22,10 +22,8 @@ echo "
     <div class=\"inlog\">
         <ul>
             ";
-if(isset($_SESSION['loginstatus'])){
-    if($_SESSION['loginstatus']){
+if(isset($_SESSION['loginstatus']) && ($_SESSION['loginstatus'] == TRUE)){
         echo " <li class='inlogmenu'><span class='gebruikersnaam'><a class='inloggen' href='account.php'> " . $_SESSION['username'] . "</a>&#9662;</span>";
-    }
 }
 elseif(!isset($_SESSION['loginstatus'])){
     echo "<li class='inlogmenu'><span class='gebruikersnaam'><a class='inloggen' href='inlog.php'>Inloggen </a>&#9662;</span>";
