@@ -43,7 +43,6 @@ if(session_status() == PHP_SESSION_NONE){
                     </tr>
                 ";
             }
-            echo  ;
             echo "
                     <tr>
                         <th>Ingelogd op</th>
