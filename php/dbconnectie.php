@@ -1,5 +1,5 @@
 <?php
-$dbserver= '192.168.1.223';
+$dbserver= '192.168.65.3';
 $dbusername = 'sa';
 $dbpassword = 'Welkom01!dg';
 $dbname = 'FletnixPHP';

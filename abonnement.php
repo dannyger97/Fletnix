@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
     $startdate = date('Y-m-d');
     $enddate = NULL;
 
-    $statement = "INSERT INTO Customer VALUES(?,?,?,?,?,1?,?,?,?,?,?,?,?) ";
+    $statement = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
     $query = $dbc->prepare($statement);
 
     if (empty(trim($emailadres)) || empty(trim($username)) || empty(trim($firstname)) || empty(trim($lastname)) || empty(trim($cardnumber)) || empty(trim($birthdate)) || empty(trim($gender)) || empty(trim($password)) || empty(trim($password)) || empty(trim($confirmation))) {
