@@ -22,7 +22,8 @@ require_once 'php/dbconnectie.php';
             }
         }
     else {
-        echo 'dit soort films bieden wij aan op Fletnix';
+        header('Location:inlog.php?return=filmoverzicht.php');
+
     }
 ?>
         </div>
