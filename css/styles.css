@@ -181,7 +181,7 @@
 
     .content img {
         width:30%;
-        margin:5px auto;
+        margin:5px 0;
         border: 2px solid black;
     }
 
@@ -269,6 +269,16 @@
         margin:5px 10px;
         width:auto;
         height: 479.7px;
+    }
+
+    .index-item form{
+        display:flex;
+        flex-direction: row;
+        margin-left:10px;
+    }
+
+    .index-item label,input {
+        margin-right:5px;
     }
 
     .index-container h1 {
