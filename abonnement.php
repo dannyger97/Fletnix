@@ -43,11 +43,19 @@ if (isset($_POST['submit'])) {
                 $errormessage = $error->getMessage();
                 $emailerror = 'Violation of PRIMARY KEY';
                 $usernameerror = 'Violation of UNIQUE KEY';
+                $cardlengtherror= 'The INSERT statement conflicted with the CHECK constraint "ck_payment_card_length".';
+                $birthdateerror= "The INSERT statement conflicted with the CHECK constraint \"ck_birth_date\".";
                 if (strpos($errormessage,$emailerror) !== FALSE){
                     header('Location:abonnement.php?signuperror=duplicateemail');
                 }
                 if (strpos($errormessage,$usernameerror) !== FALSE){
                     header('Location:abonnement.php?signuperror=duplicateusername');
+                }
+                if (strpos($errormessage,$cardlengtherror) !== FALSE){
+                    header('Location:abonnement.php?signuperror=cardnumberlength');
+                }
+                if (strpos($errormessage,$birthdateerror) !== FALSE){
+                    header('Location:abonnement.php?signuperror=birthdate');
                 }
                 else{
                     echo "Er ging iets fout met de database. $error";
@@ -143,6 +151,12 @@ if (isset($_POST['submit'])) {
                 }
                 if ($_GET['signuperror'] == 'duplicateusername') {
                     echo("<p class='error'>De ingevoerde gebruikersnaam is al bezet. Probeer het met een andere gebruikersnaam.</p> <br>");
+                }
+                if ($_GET['signuperror'] == 'cardnumberlength') {
+                    echo("<p class='error'>Het ingevoerde creditcardnummer is te kort. Probeer het nog een keer.</p> <br>");
+                }
+                if ($_GET['signuperror'] == 'birthdate') {
+                    echo("<p class='error'>De ingevoerde geboortedatum klopt niet met de datum van vandaag. Probeer het nog een keer.</p> <br>");
                 }
                 ?>
             </p>
