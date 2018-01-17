@@ -1,6 +1,6 @@
 <?php
 $title= 'Filmoverzicht';
-include_once 'php/header.php';
+include_once 'php/header.inc.php';
 
 require_once 'php/dbconnectie.php';
 ?>
@@ -43,5 +43,5 @@ require_once 'php/dbconnectie.php';
 </main>
 
 <?php
-include_once 'php/footer.php';
+include_once 'php/footer.inc.php';
 ?>
