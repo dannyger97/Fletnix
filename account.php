@@ -1,6 +1,6 @@
 <?php
 $title= 'Account';
-include_once 'php/header.php';
+include_once 'php/header.inc.php';
 setlocale(LC_ALL, 'nl-NL');
 if(session_status() == PHP_SESSION_NONE){
     session_start();
@@ -50,5 +50,5 @@ if(session_status() == PHP_SESSION_NONE){
     </div>
 </main>
 <?php
-include_once 'php/footer.php';
+include_once 'php/footer.inc.php';
 ?>

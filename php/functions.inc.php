@@ -39,4 +39,7 @@ function signup_error()
     if ($_GET['signuperror'] == 'passwordlength') {
         echo("<p class='error'>Het ingevoerde wachtwoord moet minimaal 6 tekens bevatten. Probeer het nog een keer.</p> <br>");
     }
+    if ($_GET['signuperror'] == 'passwordnumber') {
+        echo("<p class='error'>Het ingevoerde wachtwoord bevat geen cijfer. Probeer het nog een keer.</p> <br>");
+    }
 }?>

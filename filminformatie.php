@@ -1,6 +1,6 @@
 <?php
 $title= 'Filminformatie';
-include_once 'php/header.php';
+include_once 'php/header.inc.php';
 
 require_once 'php/dbconnectie.php';
 ?>
@@ -31,7 +31,7 @@ echo '<p>Speeltijd: '.$gegevens[0]['duration'].'</p>';
 echo '<p>Beschrijving: '.$gegevens[0]['description'].'</p>';
 echo '<p>Jaar van publicatie: '.$gegevens[0]['publication_year'].'</p>';
 echo '<p>Prijs: '.$gegevens[0]['price'].'</p>';
-echo '<a href="'. $gegevens[0]['URL'].'">Trailer</a><br>';
+echo '<iframe width="600" height="400" src="'. $gegevens[0]['URL'].'" allowfullscreen></iframe>';
 if(!empty($gegevenscast)) {
     echo '<h2>Cast</h2>';
     $casttabel = '';
@@ -57,5 +57,5 @@ if(!empty($gegevenscast)) {
     </div>
 </main>
 <?php
-include_once 'php/footer.php';
+include_once 'php/footer.inc.php';
 ?>

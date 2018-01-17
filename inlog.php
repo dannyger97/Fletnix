@@ -1,6 +1,6 @@
 <?php
 $title = 'Inlogpagina';
-include_once 'php/header.php';
+include_once 'php/header.inc.php';
 require_once 'php/dbconnectie.php';
 
 setlocale(LC_ALL, 'nl_NL');
@@ -54,5 +54,5 @@ if (isset($_POST['submit'])) {
     </div>
 </main>
 <?php
-include_once 'php/footer.php';
+include_once 'php/footer.inc.php';
 ?>

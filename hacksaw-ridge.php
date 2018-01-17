@@ -1,6 +1,6 @@
 <?php
 $title= 'Hacksaw Ridge';
-include_once 'php/header.php';
+include_once 'php/header.inc.php';
 ?>
 
 <main>
@@ -97,5 +97,5 @@ include_once 'php/header.php';
     </div>
 </main>
 <?php
-include_once 'php/footer.php';
+include_once 'php/footer.inc.php';
 ?>
