@@ -13,7 +13,8 @@ function HTMLTable($values,$tablehead){
     return $table;
 }
 
-function signup_error(){
+function signup_error()
+{
     if ($_GET['signuperror'] == 'empty') {
         echo("<p class='error'>Niet alle velden zijn ingevoerd! Probeer het nog een keer.</p> <br>");
     }
@@ -35,5 +36,7 @@ function signup_error(){
     if ($_GET['signuperror'] == 'birthdate') {
         echo("<p class='error'>De ingevoerde geboortedatum klopt niet met de datum van vandaag. Probeer het nog een keer.</p> <br>");
     }
-}
-?>
+    if ($_GET['signuperror'] == 'passwordlength') {
+        echo("<p class='error'>Het ingevoerde wachtwoord moet minimaal 6 tekens bevatten. Probeer het nog een keer.</p> <br>");
+    }
+}?>

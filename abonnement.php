@@ -30,6 +30,8 @@ if (isset($_POST['submit'])) {
 
     if (empty(trim($emailadres)) || empty(trim($username)) || empty(trim($firstname)) || empty(trim($lastname)) || empty(trim($cardnumber)) || empty(trim($birthdate)) || empty(trim($gender)) || empty(trim($password)) || empty(trim($password)) || empty(trim($confirmation))) {
         header("Location:abonnement.php?signuperror=empty&firstname=$firstname&lastname=$lastname&cardnumber=$cardnumber");
+    } elseif(strlen($password) < 6){
+        header("Location:abonnement.php?signuperror=passwordlength&firstname=$firstname&lastname=$lastname");
     } elseif ($password != $confirmation) {
         header("Location:abonnement.php?signuperror=password&firstname=$firstname&lastname=$lastname");
     } elseif (!filter_var($emailadres, FILTER_VALIDATE_EMAIL)) {
