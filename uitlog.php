@@ -1,6 +1,6 @@
 <?php
 $title= 'Uitlog';
-include_once 'php/header.php';
+include_once 'php/header.inc.php';
 if(isset($_SESSION['loginstatus'])){
     if (session_status() == PHP_SESSION_ACTIVE) {
         session_unset();
@@ -24,5 +24,5 @@ else{
 </main>
 <?php
 header('Refresh: 2; URL=index.php');
-include_once 'php/footer.php';
+include_once 'php/footer.inc.php';
 ?>

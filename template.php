@@ -1,6 +1,6 @@
 <?php
 $title= 'Template';
-include_once 'php/header.php';
+include_once 'php/header.inc.php';
 echo"
 
     <main>
@@ -12,5 +12,5 @@ echo"
         </div>
     </main>
 ";
-include_once 'php/footer.php';
+include_once 'php/footer.inc.php';
 ?>

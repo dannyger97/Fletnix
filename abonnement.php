@@ -1,7 +1,7 @@
 <?php
 $title = 'Abonnement';
-include_once 'php/header.php';
-include 'php/functions.php';
+include_once 'php/header.inc.php';
+include 'php/functions.inc.php';
 require_once 'php/dbconnectie.php';
 
 if (!isset($_GET['signuperror'])) {
@@ -28,14 +28,17 @@ if (isset($_POST['submit'])) {
     $statement = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
     $query = $dbc->prepare($statement);
 
-    if (empty(trim($emailadres)) || empty(trim($username)) || empty(trim($firstname)) || empty(trim($lastname)) || empty(trim($cardnumber)) || empty(trim($birthdate)) || empty(trim($gender)) || empty(trim($password)) || empty(trim($password)) || empty(trim($confirmation))) {
+    if (empty(trim($emailadres)) || empty(trim($username)) || empty(trim($firstname)) || empty(trim($lastname)) ||
+        empty(trim($cardnumber)) || empty(trim($birthdate)) || empty(trim($gender)) || empty(trim($password)) || empty(trim($password)) || empty(trim($confirmation))) {
         header("Location:abonnement.php?signuperror=empty&firstname=$firstname&lastname=$lastname&cardnumber=$cardnumber");
-    } elseif(strlen($password) < 6){
+    } elseif (strlen($password) < 6) {
         header("Location:abonnement.php?signuperror=passwordlength&firstname=$firstname&lastname=$lastname");
     } elseif ($password != $confirmation) {
         header("Location:abonnement.php?signuperror=password&firstname=$firstname&lastname=$lastname");
     } elseif (!filter_var($emailadres, FILTER_VALIDATE_EMAIL)) {
         header("Location:abonnement.php?signuperror=emailadres&firstname=$firstname&lastname=$lastname");
+    } elseif (!preg_match("#[0-9]+#", $password)) {
+        header("Location:abonnement.php?signuperror=passwordnumber&firstname=$firstname&lastname=$lastname");
     } else {
         try {
             $password = password_hash($password, PASSWORD_BCRYPT);
@@ -45,21 +48,20 @@ if (isset($_POST['submit'])) {
                 $errormessage = $error->getMessage();
                 $emailerror = 'Violation of PRIMARY KEY';
                 $usernameerror = 'Violation of UNIQUE KEY';
-                $cardlengtherror= 'The INSERT statement conflicted with the CHECK constraint "ck_payment_card_length".';
-                $birthdateerror= "The INSERT statement conflicted with the CHECK constraint \"ck_birth_date\".";
-                if (strpos($errormessage,$emailerror) !== FALSE){
+                $cardlengtherror = 'The INSERT statement conflicted with the CHECK constraint "ck_payment_card_length".';
+                $birthdateerror = "The INSERT statement conflicted with the CHECK constraint \"ck_birth_date\".";
+                if (strpos($errormessage, $emailerror) !== FALSE) {
                     header('Location:abonnement.php?signuperror=duplicateemail');
                 }
-                if (strpos($errormessage,$usernameerror) !== FALSE){
+                if (strpos($errormessage, $usernameerror) !== FALSE) {
                     header('Location:abonnement.php?signuperror=duplicateusername');
                 }
-                if (strpos($errormessage,$cardlengtherror) !== FALSE){
+                if (strpos($errormessage, $cardlengtherror) !== FALSE) {
                     header('Location:abonnement.php?signuperror=cardnumberlength');
                 }
-                if (strpos($errormessage,$birthdateerror) !== FALSE){
+                if (strpos($errormessage, $birthdateerror) !== FALSE) {
                     header('Location:abonnement.php?signuperror=birthdate');
-                }
-                else{
+                } else {
                     echo "Er ging iets fout met de database. $error";
                 }
             } else {
@@ -72,6 +74,8 @@ if (isset($_POST['submit'])) {
         }
     }
 }
+
+
 ?>
 
 <main>
@@ -228,5 +232,5 @@ if (isset($_POST['submit'])) {
     </div>
 </main>
 <?php
-include_once 'php/footer.php';
+include_once 'php/footer.inc.php';
 ?>
