@@ -171,6 +171,14 @@
         background-color: rgb(158, 154, 117);
     }
 
+    .content table{
+        margin-bottom: 10px;
+    }
+
+    .content td{
+        padding-left:3px;
+    }
+
     .content img {
         width:30%;
         margin:5px auto;
@@ -260,7 +268,7 @@
     .index-item img {
         margin:5px 10px;
         width:auto;
-        height: 433.3px;
+        height: 479.7px;
     }
 
     .index-container h1 {
@@ -369,12 +377,24 @@
 
      */
     footer {
+         width: 99.71%;
+         background-color: rgb(65, 83, 59);
+         text-align: center;
+         border-top: 2px solid black;
+         color: black;
+         padding: 3px;
+     }
+
+    .fixed{
         width: 99.71%;
         background-color: rgb(65, 83, 59);
         text-align: center;
         border-top: 2px solid black;
         color: black;
         padding: 3px;
+        position: fixed;
+        bottom:0;
+        right:0;
     }
 
 }

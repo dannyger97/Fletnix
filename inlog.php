@@ -4,7 +4,6 @@ include_once 'php/header.php';
 require_once 'php/dbconnectie.php';
 
 setlocale(LC_ALL, 'nl_NL');
-
 if(!isset($_GET['login'])){
     $_GET['login'] = '';
 }
@@ -20,16 +19,18 @@ if (isset($_POST['submit'])) {
     if (password_verify($password, $gegevens)) {
         $_SESSION['loginstatus'] = true;
         $_SESSION['username'] = $username;
-        header('Location: index.php');
         $_SESSION['logindatum'] = date('D-d-m-Y');
         $_SESSION['logintijd'] = date('H:i:s');
-
+        if (isset($_GET['return']) && !empty($_GET['return'])){
+            header('Location: filmoverzicht.php');
+        }
+        else {
+            header('Location: index.php');
+        }
         }
     else {
         header('Location: inlog.php?login=password');
     }
-
-
 }
 
 ?>
@@ -52,7 +53,6 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </main>
-
 <?php
 include_once 'php/footer.php';
 ?>
