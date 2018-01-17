@@ -1,7 +1,7 @@
 <?php
 $title = 'Abonnement';
 include_once 'php/header.php';
-
+include 'php/functions.php';
 require_once 'php/dbconnectie.php';
 
 if (!isset($_GET['signuperror'])) {
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
     $startdate = date('Y-m-d');
     $enddate = NULL;
 
-    $statement = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+    $statement = "INSERT INTO Customer VALUES(?,?,?,?,?,1?,?,?,?,?,?,?,?) ";
     $query = $dbc->prepare($statement);
 
     if (empty(trim($emailadres)) || empty(trim($username)) || empty(trim($firstname)) || empty(trim($lastname)) || empty(trim($cardnumber)) || empty(trim($birthdate)) || empty(trim($gender)) || empty(trim($password)) || empty(trim($password)) || empty(trim($confirmation))) {
@@ -43,11 +43,19 @@ if (isset($_POST['submit'])) {
                 $errormessage = $error->getMessage();
                 $emailerror = 'Violation of PRIMARY KEY';
                 $usernameerror = 'Violation of UNIQUE KEY';
+                $cardlengtherror= 'The INSERT statement conflicted with the CHECK constraint "ck_payment_card_length".';
+                $birthdateerror= "The INSERT statement conflicted with the CHECK constraint \"ck_birth_date\".";
                 if (strpos($errormessage,$emailerror) !== FALSE){
                     header('Location:abonnement.php?signuperror=duplicateemail');
                 }
                 if (strpos($errormessage,$usernameerror) !== FALSE){
                     header('Location:abonnement.php?signuperror=duplicateusername');
+                }
+                if (strpos($errormessage,$cardlengtherror) !== FALSE){
+                    header('Location:abonnement.php?signuperror=cardnumberlength');
+                }
+                if (strpos($errormessage,$birthdateerror) !== FALSE){
+                    header('Location:abonnement.php?signuperror=birthdate');
                 }
                 else{
                     echo "Er ging iets fout met de database. $error";
@@ -129,22 +137,7 @@ if (isset($_POST['submit'])) {
             <h2>Aanmelden</h2>
             <br>
             <p>
-                <?php if ($_GET['signuperror'] == 'empty') {
-                    echo("<p class='error'>Niet alle velden zijn ingevoerd! Probeer het nog een keer.</p> <br>");
-                }
-                if ($_GET['signuperror'] == 'emailadres') {
-                    echo("<p class='error'>Dit is geen juist emailadres! Probeer het nog een keer.</p> <br>");
-                }
-                if ($_GET['signuperror'] == 'password') {
-                    echo("<p class='error'>De wachtwoorden zijn niet gelijk! Probeer het nog een keer.</p> <br>");
-                }
-                if ($_GET['signuperror'] == 'duplicateemail') {
-                    echo("<p class='error'>Het ingevoerde emailadres is al bezet. Probeer het met een ander emailadres.</p> <br>");
-                }
-                if ($_GET['signuperror'] == 'duplicateusername') {
-                    echo("<p class='error'>De ingevoerde gebruikersnaam is al bezet. Probeer het met een andere gebruikersnaam.</p> <br>");
-                }
-                ?>
+                <?php signup_error() ?>
             </p>
             <form class="formulier" action="" method="post">
                 <div class="">
