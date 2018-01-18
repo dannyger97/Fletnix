@@ -30,16 +30,14 @@ require_once 'php/dbconnectie.php';
                         echo "<input type='text' id='regisseur' name='filmregisseur'>";
                     }
                     if(isset($_GET['publicatiejaar'])&& !empty($_GET['publicatiejaar'])){
-
+                        <label for="publicatiejaar">Zoeken op publicatiejaar: </label>
+                        <input type="number" id="publicatiejaar" name="publicatiejaar" min="1900" max="2050">
                     }
                     else{
-
+                        <label for="publicatiejaar">Zoeken op publicatiejaar: </label>
+                        <input type="number" id="publicatiejaar" name="publicatiejaar" min="1900" max="2050">
                     }
                     ?>
-
-
-                    <label for="publicatiejaar">Zoeken op publicatiejaar: </label>
-                    <input type="number" id="publicatiejaar" name="publicatiejaar" min="1900" max="2050">
                     <input type="submit" id="zoeken" value="Zoeken" name="submit">
                 </form>
             </div>
