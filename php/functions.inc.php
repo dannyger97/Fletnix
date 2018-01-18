@@ -50,8 +50,8 @@ function movieloop ($i)
     foreach ($i as $film) {
         $image = $film['cover_image'];
         $movie = $film['movie_id'];
-        $movies.= '<a href="filminformatie.php?movieid=' . $movie . '">
-        <img src="' . $image . '">
+        $movies.= '<a href="/Fletnix/films/' . $movie . '">
+        <img src="/Fletnix/' . $image . '">
         </a>';
     }
     echo $movies;
