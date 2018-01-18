@@ -1,0 +1,4 @@
+ErrorDocument 404 http://localhost/Fletnix/error.php
+RewriteEngine On
+RewriteBase /Fletnix/
+RewriteRule ^films/([A-Za-z0-9-]+)/?$ filminformatie.php?movieid=$1 [NC,L]    # Filmoverzicht movie id's
