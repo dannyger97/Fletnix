@@ -1,7 +1,7 @@
 <?php
-$dbserver= 'localhost';
+$dbserver= '192.168.1.223';
 $dbusername = 'sa';
-$dbpassword = 'Woonkamer123';
+$dbpassword = 'Welkom01!dg';
 $dbname = 'FletnixPHP';
 
 try {
