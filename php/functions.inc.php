@@ -42,4 +42,18 @@ function signup_error()
     if ($_GET['signuperror'] == 'passwordnumber') {
         echo("<p class='error'>Het ingevoerde wachtwoord bevat geen cijfer. Probeer het nog een keer.</p> <br>");
     }
-}?>
+}
+
+function movieloop ($i)
+{
+    $movies="";
+    foreach ($i as $film) {
+        $image = $film['cover_image'];
+        $movie = $film['movie_id'];
+        $movies.= '<a href="filminformatie.php?movieid=' . $movie . '">
+        <img src="' . $image . '">
+        </a>';
+    }
+    echo $movies;
+}
+?>
