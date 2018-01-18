@@ -213,16 +213,6 @@
         margin-bottom: 10px;
     }
 
-    .geslacht-container {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .content .geslacht {
-        display: flex;
-        flex-direction: row;
-    }
-
     video {
         width: 90%;
         height: 60%;
@@ -638,17 +628,6 @@
 
     .content p {
         font-size: 15px
-    }
-
-
-    .geslacht-container {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .content .geslacht {
-        display: flex;
-        flex-direction: row;
     }
 
     video {
