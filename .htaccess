@@ -1,4 +1,5 @@
 ErrorDocument 404 http://localhost/Fletnix/error.php
 RewriteEngine On
 RewriteBase /Fletnix/
+RewriteRule ^films filmoverzicht.php [NC,L]
 RewriteRule ^films/([0-9]+)/?$    filminformatie.php?movieid=$1    [NC,L]    # Handle product requests
