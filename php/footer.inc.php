@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER['REQUEST_URI']=='/fletnix/inlog.php' or $_SERVER['REQUEST_URI']=='/fletnix/inlog.php?return=filmoverzicht.php'){
+if ($_SERVER['REQUEST_URI']=='/Fletnix/inlog.php' or $_SERVER['REQUEST_URI']=='/fletnix/inlog.php?return=filmoverzicht.php' or $_SERVER['REQUEST_URI']=='/Fletnix/about.php?contact=success'){
     echo
         "
         <footer class='fixed'>
