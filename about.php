@@ -11,8 +11,10 @@ if (isset($_POST['submit'])) {
     <div class='content-container'>
         <div class='content'>
             <?php
-            if (isset($_GET['contact']) && $_GET['contact'] == 'success') {
+            if (isset($_GET['contact']) && $_GET['contact'] == 'success' ) {
+                $bericht = htmlspecialchars($_POST['message']);
                 echo "<h1>Contact</h1><br><p>Bedankt voor uw vraag. We zullen zo snel mogelijk op u reageren.</p><br><br>";
+                echo "<p>Uw bericht: <br> ".var_dump($bericht)."</p>";
             } else {
                 ?>
 
@@ -42,7 +44,7 @@ if (isset($_POST['submit'])) {
             <p>
                 Als u contact wilt opnemen met ons, vult u dan dit formulier in:
             </p><br/>
-            <form class='formulier' action='' method='post'>
+            <form class='formulier' action='about.php' method='post' id="contact">
                 <div class='veld'>
                     <label for='naam'>Naam</label>
                     <input type='text' name='naam' id='naam' maxlength='40' placeholder='Naam'/>
@@ -65,8 +67,8 @@ if (isset($_POST['submit'])) {
                     <input type='email' name='naam' id='email' placeholder='E - mail adres ..'/>
                 </div>
                 <div class='veld'>
-                    <label for='opmerkingen'>Opmerkingen</label>
-                    <textarea name='opmerkingen' id='opmerkingen' rows='6' cols='40' placeholder='Opmerking ..'></textarea>
+                    <label for='message'>Opmerkingen</label>
+                    <textarea name='message' id="message" rows='6' cols='40' form="contact" placeholder='Opmerking ..'></textarea>
                 </div>
                 <button type='submit' name='submit'>Verzenden</button>
             </form>
