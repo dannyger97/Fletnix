@@ -4,7 +4,7 @@ include_once 'php/header.inc.php';
 ?>
 
 <main>
-    <div class="index-container">
+    <div class="video">
         <div class="video-container">
             <div class="index-text">
                 <p>

@@ -21,7 +21,7 @@ require_once 'php/dbconnectie.php';
             </form>
             <form action="filmoverzicht.php" method="post">
                 <label for="publicatiejaar">Zoeken op publicatiejaar: </label>
-                <input type="number" id="publicatiejaar" name="publicatiejaar">
+                <input type="number" id="publicatiejaar" name="publicatiejaar" min="1900" max="2050">
                 <input type="submit" id="zoeken" value="Zoeken">
             </form>
         </div>
@@ -36,7 +36,7 @@ require_once 'php/dbconnectie.php';
             movieloop($i);
         }
         if (!empty($_POST['filmtitel']) && empty($_POST['filmregisseur']) && empty($_POST['publicatiejaar'])) {
-            echo '<div class="index-container"><p> U heeft gezocht op titel: ' . $_POST['filmtitel'] . ' - Gesorteerd op publicatiejaar</p><div class="index-item">';
+            echo '<div><p> U heeft gezocht op titel: ' . $_POST['filmtitel'] . ' - Gesorteerd op publicatiejaar</p><div class="index-item">';
             $filmtitel = "%" . $_POST['filmtitel'] . "%";
             $statement = "SELECT Movie.movie_id, cover_image FROM Movie WHERE title LIKE ? ORDER BY publication_year DESC";
             $query = $dbc->prepare($statement);
@@ -46,7 +46,7 @@ require_once 'php/dbconnectie.php';
             echo '</div></div>';
         }
         if (empty($_POST['filmtitel']) && !empty($_POST['filmregisseur']) && empty($_POST['publicatiejaar'])) {
-            echo '<div class="index-container"><p> U heeft gezocht op regisseur: ' . $_POST['filmregisseur'] . ' - Gesorteerd op publicatiejaar</p><div class="index-item">';
+            echo '<div><p> U heeft gezocht op regisseur: ' . $_POST['filmregisseur'] . ' - Gesorteerd op publicatiejaar</p><div class="index-item">';
             $filmregisseur = "%" . $_POST['filmregisseur'] . "%";
             $statement = "SELECT Movie.movie_id, cover_image FROM Movie INNER JOIN Movie_Director md on Movie.movie_id=md.movie_id INNER JOIN Person p on p.person_id=md.person_id WHERE p.lastname LIKE ? OR p.firstname LIKE ? ORDER BY publication_year DESC";
             $query = $dbc->prepare($statement);
@@ -56,7 +56,7 @@ require_once 'php/dbconnectie.php';
             echo '</div></div>';
         }
         if (empty($_POST['filmtitel']) && empty($_POST['filmregisseur']) && !empty($_POST['publicatiejaar'])) {
-            echo '<div class="index-container"><p> U heeft gezocht op publicatiejaar: ' . $_POST['publicatiejaar'] . ' - Gesorteerd op titel</p><div class="index-item">';
+            echo '<div><p> U heeft gezocht op publicatiejaar: ' . $_POST['publicatiejaar'] . ' - Gesorteerd op titel</p><div class="index-item">';
             $publicatiejaar = $_POST['publicatiejaar'];
             $statement = "SELECT Movie.movie_id, cover_image FROM Movie WHERE publication_year= ? ORDER BY title ASC";
             $query = $dbc->prepare($statement);
