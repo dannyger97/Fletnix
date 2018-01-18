@@ -17,25 +17,26 @@ require_once 'php/dbconnectie.php';
                         echo "<input type='text' id='titel' name='filmtitel' value='$title'>";
                     }
                     else{
-                        echo"<label for='titel'>Zoeken op titel: </label>";
+                        echo "<label for='titel'>Zoeken op titel: </label>";
                         echo "<input type='text' id='titel' name='filmtitel'>";
                     }
                     if(isset($_GET['regisseur'])&& !empty($_GET['regisseur'])){
-                        $regisseur=;
-                        <label for="regisseur">Zoeken op regisseur: </label>
-                    <input type="text" id="regisseur" name="filmregisseur">
+                        $regisseur=$_GET['regisseur'];
+                        echo "<label for='regisseur'>Zoeken op regisseur: </label>";
+                        echo "<input type='text' id='regisseur' name='filmregisseur' value='$regisseur'>";
                     }
                     else{
                         echo "<label for='regisseur'>Zoeken op regisseur: </label>";
                         echo "<input type='text' id='regisseur' name='filmregisseur'>";
                     }
                     if(isset($_GET['publicatiejaar'])&& !empty($_GET['publicatiejaar'])){
-                        <label for="publicatiejaar">Zoeken op publicatiejaar: </label>
-                        <input type="number" id="publicatiejaar" name="publicatiejaar" min="1900" max="2050">
+                        $publicatiejaar = $_GET ['publicatiejaar'];
+                        echo "<label for='publicatiejaar'>Zoeken op publicatiejaar: </label>";
+                        echo "<input type='number' id='publicatiejaar' name='publicatiejaar' value='$publicatiejaar' min='1900' max='2050'>";
                     }
                     else{
-                        <label for="publicatiejaar">Zoeken op publicatiejaar: </label>
-                        <input type="number" id="publicatiejaar" name="publicatiejaar" min="1900" max="2050">
+                        echo "<label for='publicatiejaar'>Zoeken op publicatiejaar: </label>";
+                        echo "<input type='number' id=publicatiejaar' name='publicatiejaar' min='1900' max='2050'>";
                     }
                     ?>
                     <input type="submit" id="zoeken" value="Zoeken" name="submit">
