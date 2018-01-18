@@ -147,6 +147,11 @@
     ---- MAIN CSS ----
 
      */
+    .video{
+        display:flex;
+        flex-direction:column;
+    }
+
     .content-container {
         margin-top: 1%;
         margin-bottom: calc(27px + 1%);
@@ -244,7 +249,10 @@
     .index-container {
         display: flex;
         flex-direction: column;
-        margin: auto;
+        border: 2px solid black;
+        margin: 1% 15% calc(27px + 1%);
+        padding: 0 1% 0 1%;
+        background: rgb(158, 154, 117);
     }
 
     .index-container p {
@@ -261,7 +269,7 @@
     .index-item img {
         margin:5px 10px;
         width:auto;
-        height: 479.7px;
+        height: 403.3px;
     }
 
     .index-item form{
