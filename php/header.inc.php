@@ -42,7 +42,7 @@ echo "
         <ul class=\"navigation-items\">
             <!-- Desktop menu -->
             <li><a href=\"index.php\"> Home</a></li>
-            <li><a href=\"filmoverzicht.php\"> Filmoverzicht</a></li>
+            <li><a href=\"films\"> Filmoverzicht</a></li>
             <li><a href=\"abonnement.php\"> Abonnement</a></li>
             <li><a href=\"about.php\"> Over ons</a></li>
         </ul>
