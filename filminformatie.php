@@ -32,10 +32,10 @@ echo '<p>Beschrijving: '.$gegevens[0]['description'].'</p>';
 echo '<p>Jaar van publicatie: '.$gegevens[0]['publication_year'].'</p>';
 echo '<p>Prijs: '.$gegevens[0]['price'].'</p>';
 echo '<iframe width="600" height="400" src="'. $gegevens[0]['URL'].'" allowfullscreen></iframe>';
-if(!empty($gegevenscast)) {
-    echo '<h2>Cast</h2>';
-    $casttabel = '';
-    $casttabel .= '<table> <tr><th>Naam</th><th>Role</th></tr>';
+echo '<h2>Cast</h2>';
+$casttabel = '';
+$casttabel .= '<table> <tr><th>Naam</th><th>Role</th></tr>';
+if(!empty($gegevenscast)){
     for ($i = 0; $i < count($gegevenscast); $i++) {
         $casttabel .= "<tr>";
         $casttabel .= "<th>" . $gegevenscast[$i][0] . "</th>";
@@ -43,6 +43,7 @@ if(!empty($gegevenscast)) {
         $casttabel .= "</tr>";
 
     }
+}
     if(!empty($gegevensdirector)){
        $casttabel .= "<tr>";
        $casttabel .= "<th>". $gegevensdirector [0][0]. "</th>";
@@ -51,7 +52,6 @@ if(!empty($gegevenscast)) {
     }
     $casttabel .= '</table>';
     echo $casttabel;
-}
 ?>
         </div>
     </div>
