@@ -20,10 +20,10 @@ $query=$dbc->prepare($cast);
 $query->execute([$movieid]);
 $gegevenscast=$query->fetchAll();
 
-$director= "SELECT firstname+ ' ' +lastname AS Name FROM Movie_Director INNER JOIN Person ON Movie_Director.person_id=Person.person_id WHERE movie_id=?";
-$query=$dbc->prepare($director);
+$regisseur= "SELECT firstname+ ' ' +lastname AS Name FROM Movie_Director INNER JOIN Person ON Movie_Director.person_id=Person.person_id WHERE movie_id=?";
+$query=$dbc->prepare($regisseur);
 $query->execute([$movieid]);
-$gegevensdirector=$query->fetchAll();
+$gegevensregisseur=$query->fetchAll();
 
 echo $gegevens[0]['title'].'</h1>';
 echo '<img src="'.$gegevens [0]['cover_image'].'"';
@@ -44,9 +44,9 @@ if(!empty($gegevenscast)){
 
     }
 }
-    if(!empty($gegevensdirector)){
+    if(!empty($gegevensregisseur)){
        $casttabel .= "<tr>";
-       $casttabel .= "<th>". $gegevensdirector [0][0]. "</th>";
+       $casttabel .= "<th>". $gegevensregisseur [0][0]. "</th>";
        $casttabel .= "<td>Regisseur</td>";
        $casttabel .= "</tr>";
     }

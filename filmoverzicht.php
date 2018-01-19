@@ -11,10 +11,10 @@ require_once 'php/dbconnectie.php';
             <div class="index-item">
                 <form action="filmoverzicht.php" method="post">
                     <?php
-                    if(isset($_GET['title'])&& !empty($_GET['title'])){
-                        $title= $_GET['title'];
+                    if(isset($_GET['titel'])&& !empty($_GET['titel'])){
+                        $titel= $_GET['titel'];
                         echo"<label for='titel'>Zoeken op titel: </label>";
-                        echo "<input type='text' id='titel' name='filmtitel' value='$title'>";
+                        echo "<input type='text' id='titel' name='filmtitel' value='$titel'>";
                     }
                     else{
                         echo "<label for='titel'>Zoeken op titel: </label>";
@@ -39,20 +39,20 @@ require_once 'php/dbconnectie.php';
                         echo "<input type='number' id=publicatiejaar' name='publicatiejaar' min='1900' max='2050'>";
                     }
                     ?>
-                    <input type="submit" id="zoeken" value="Zoeken" name="submit">
+                    <input type="submit" id="zoeken" value="Zoeken" name="verzending">
                 </form>
             </div>
             <div class="index-item">
                 <?php
                 if (isset ($_SESSION['loginstatus']) && ($_SESSION['loginstatus'] == TRUE)) {
-                    if (!isset($_POST['submit']) && !isset($_GET['search'])) {
+                    if (!isset($_POST['verzending']) && !isset($_GET['zoek'])) {
                         $statement = "SELECT movie_id,cover_image FROM Movie";
                         $query = $dbc->prepare($statement);
                         $query->execute();
                         $i = $query->fetchAll();
                         movieloop($i);
                     }
-                    if (isset($_POST['submit'])) {
+                    if (isset($_POST['verzending'])) {
                             $filmtitel = "%" . $_POST['filmtitel'] . "%";
                             $filmregisseur = "%" . $_POST['filmregisseur'] . "%";
                             $publicatiejaar = "%" . $_POST['publicatiejaar'] . "%";
@@ -68,9 +68,9 @@ require_once 'php/dbconnectie.php';
                             $_SESSION['zoektitelinfo'] = $_POST['filmtitel'];
                             $_SESSION['zoekregisseurinfo'] = $_POST['filmregisseur'];
                             $_SESSION['zoekjaarinfo'] = $_POST['publicatiejaar'];
-                            header('Location:filmoverzicht.php?search=result&title='.$_POST["filmtitel"].'&regisseur='.$_POST["filmregisseur"].'&publicatiejaar='.$_POST["publicatiejaar"].'');
+                            header('Location:filmoverzicht.php?zoek=result&titel='.$_POST["filmtitel"].'&regisseur='.$_POST["filmregisseur"].'&publicatiejaar='.$_POST["publicatiejaar"].'');
                     }
-                    if (isset ($_GET['search']) && $_GET['search'] == 'result') {
+                    if (isset ($_GET['zoek']) && $_GET['zoek'] == 'result') {
                         $i = $_SESSION['movies'];
                         echo '<div><p> U heeft gezocht op filmtitel: '.$_SESSION['zoektitelinfo'].' - regisseur: '.$_SESSION['zoekregisseurinfo'].' - en publicatiejaar: '.$_SESSION['zoekjaarinfo'].' </p><div class="index-item">';
                         movieloop($i);
