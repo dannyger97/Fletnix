@@ -1,20 +1,22 @@
 <?php
 $title = 'Over ons';
 include_once 'php/header.inc.php';
-
 ?>
-
     <main>
         <div class='content-container'>
             <div class='content'>
                 <?php
-                if (isset($_POST['verzending'])) {
-                    $bericht = htmlspecialchars($_POST['message']);
+                if (isset($_POST['verzending']) && $_GET['verzending'] != 'succes') {
+                    $bericht = htmlspecialchars($_POST['bericht']);
+                    header('Location: about.php?verzending=succes&bericht='.$bericht.'');
+                }
+                elseif(isset($_GET['verzending']) && $_GET['verzending'] == 'succes'){
+                    $bericht= $_GET['bericht'];
+                    $bericht= wordwrap($bericht,150,"<br />");
                     echo "<h1>Contact</h1><br><p>Bedankt voor uw vraag. We zullen zo snel mogelijk op u reageren.</p><br><br>";
                     echo "<p>Uw bericht: <br/>$bericht</p><br>";
-                } else {
-                    $verbose = false;
-                    if ($verbose) { ?>
+                }
+                else { ?>
                     <h1>Over ons</h1>
                     <p>
                         Wij, Danny Gerritsen en Wout Hakvoort, zijn twee ICT-studenten aan de Hogeschool van Arnhem en Nijmegen.
@@ -33,7 +35,6 @@ include_once 'php/header.inc.php';
                         deze bepaalde doelgroep. Ook zijn wij beide geïnspireerd door het spel 'Call of Duty: World War II' wat zich
                         afspeelt tijdens de Tweede Wereldoorlog. Doormiddel van deze inspiratie is deze site tot stand gekomen.
                     </p><br/>
-                    <?php } ?>
                     <h1>Contact</h1>
                     <p>Als u contact wilt opnemen met ons, vult u dan dit formulier in:</p><br/><br/>
                     <form class='formulier' action='' method='post' id="contact">
@@ -59,8 +60,8 @@ include_once 'php/header.inc.php';
                                 <input type='email' name='email' id='email' placeholder='E-mail adres ..'/>
                             </div>
                             <div class='veld'>
-                                <label for="message">Opmerkingen</label>
-                                <textarea name="message" id="message" rows="6" cols="40" form="contact" placeholder="Opmerking .."></textarea>
+                                <label for="bericht">Opmerkingen</label>
+                                <textarea name="bericht" id="bericht" rows="6" cols="40" form="contact" placeholder="Opmerking .."></textarea>
                             </div>
                             <button type='submit' name='verzending' value="Verzenden">Verzenden</button>
                     </form>
