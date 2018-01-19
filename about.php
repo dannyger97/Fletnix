@@ -2,8 +2,8 @@
 $title = 'Over ons';
 include_once 'php/header.inc.php';
 
-if (isset($_POST['submit'])) {
-    header('Location: about.php?contact=success');
+if (isset($_POST['verzending'])) {
+    header('Location: about.php?contact=succes');
 }
 ?>
 
@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     <div class='content-container'>
         <div class='content'>
             <?php
-            if (isset($_GET['contact']) && $_GET['contact'] == 'success' ) {
+            if (isset($_GET['contact']) && $_GET['contact'] == 'succes' ) {
                 $bericht = htmlspecialchars($_POST['message']);
                 echo "<h1>Contact</h1><br><p>Bedankt voor uw vraag. We zullen zo snel mogelijk op u reageren.</p><br><br>";
                 echo "<p>Uw bericht: <br> ".var_dump($bericht)."</p>";
@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
                     <label for='message'>Opmerkingen</label>
                     <textarea name='message' id="message" rows='6' cols='40' form="contact" placeholder='Opmerking ..'></textarea>
                 </div>
-                <button type='submit' name='submit'>Verzenden</button>
+                <button type='submit' name='verzending'>Verzenden</button>
             </form>
             <?php
             } ?>

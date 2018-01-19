@@ -4,72 +4,72 @@ include_once 'php/header.inc.php';
 include 'php/functions.inc.php';
 require_once 'php/dbconnectie.php';
 
-if (!isset($_GET['signuperror'])) {
-    $_GET['signuperror'] = '';
+if (!isset($_GET['registreerfout'])) {
+    $_GET['registreerfout'] = '';
 }
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['verzending'])) {
     $emailadres = htmlspecialchars($_POST['email']);
-    $username = htmlspecialchars($_POST['username']);
-    $firstname = htmlspecialchars(ucfirst($_POST['firstname']));
-    $lastname = htmlspecialchars(ucfirst($_POST['lastname']));
-    $country = $_POST['country'];
-    $payment = $_POST['payment'];
-    $cardnumber = htmlspecialchars($_POST['cardnumber']);
-    $datum = new DateTime($_POST['birthdate']);
-    $birthdate = date_format($datum, 'Y-m-d');
-    $gender = $_POST['gender'];
-    $password = $_POST['password'];
-    $confirmation = $_POST['confirmation'];
+    $gebruikersnaam = htmlspecialchars($_POST['gebruikersnaam']);
+    $voornaam = htmlspecialchars(ucfirst($_POST['voornaam']));
+    $achternaam = htmlspecialchars(ucfirst($_POST['achternaam']));
+    $land = $_POST['land'];
+    $betaling = $_POST['betaling'];
+    $kaartnummer = htmlspecialchars($_POST['kaartnummer']);
+    $datum = new DateTime($_POST['geboortedatum']);
+    $geboortedatum = date_format($datum, 'Y-m-d');
+    $geslacht = $_POST['geslacht'];
+    $wachtwoord = $_POST['wachtwoord'];
+    $bevestiging = $_POST['bevestiging'];
     $abonnement = $_POST['abonnement'];
-    $startdate = date('Y-m-d');
-    $enddate = NULL;
+    $startdatum = date('Y-m-d');
+    $einddatum = NULL;
 
     $statement = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
     $query = $dbc->prepare($statement);
 
-    if (empty(trim($emailadres)) || empty(trim($username)) || empty(trim($firstname)) || empty(trim($lastname)) ||
-        empty(trim($cardnumber)) || empty(trim($birthdate)) || empty(trim($gender)) || empty(trim($password)) || empty(trim($password)) || empty(trim($confirmation))) {
-        header("Location:abonnement.php?signuperror=empty&firstname=$firstname&lastname=$lastname&cardnumber=$cardnumber");
-    } elseif (strlen($password) < 6) {
-        header("Location:abonnement.php?signuperror=passwordlength&firstname=$firstname&lastname=$lastname");
-    } elseif ($password != $confirmation) {
-        header("Location:abonnement.php?signuperror=password&firstname=$firstname&lastname=$lastname");
+    if (empty(trim($emailadres)) || empty(trim($gebruikersnaam)) || empty(trim($voornaam)) || empty(trim($achternaam)) ||
+        empty(trim($kaartnummer)) || empty(trim($geboortedatum)) || empty(trim($geslacht)) || empty(trim($wachtwoord)) || empty(trim($wachtwoord)) || empty(trim($bevestiging))) {
+        header("Location:abonnement.php?registreerfout=leeg&voornaam=$voornaam&achternaam=$achternaam&kaartnummer=$kaartnummer");
+    } elseif (strlen($wachtwoord) < 6) {
+        header("Location:abonnement.php?registreerfout=wachtwoordlengte&voornaam=$voornaam&achternaam=$achternaam&kaartnummer=$kaartnummer");
+    } elseif ($wachtwoord != $bevestiging) {
+        header("Location:abonnement.php?registreerfout=wachtwoord&voornaam=$voornaam&achternaam=$achternaam&kaartnummer=$kaartnummer");
     } elseif (!filter_var($emailadres, FILTER_VALIDATE_EMAIL)) {
-        header("Location:abonnement.php?signuperror=emailadres&firstname=$firstname&lastname=$lastname");
-    } elseif (!preg_match("#[0-9]+#", $password)) {
-        header("Location:abonnement.php?signuperror=passwordnumber&firstname=$firstname&lastname=$lastname");
+        header("Location:abonnement.php?registreerfout=emailadres&voornaam=$voornaam&achternaam=$achternaam&kaartnummer=$kaartnummer");
+    } elseif (!preg_match("#[0-9]+#", $wachtwoord)) {
+        header("Location:abonnement.php?registreerfout=wachtwoordcijfer&voornaam=$voornaam&achternaam=$achternaam&kaartnummer=$kaartnummer");
     } else {
         try {
-            $password = password_hash($password, PASSWORD_BCRYPT);
-            $query->execute([$emailadres, $lastname, $firstname, $payment, $cardnumber, $abonnement, $startdate, $enddate, $username, $password, $country, $gender, $birthdate]);
-        } catch (PDOException $error) {
-            if ($error->errorInfo[0] == 23000) {
-                $errormessage = $error->getMessage();
+            $wachtwoord = password_hash($wachtwoord, PASSWORD_BCRYPT);
+            $query->execute([$emailadres, $achternaam, $voornaam, $betaling, $kaartnummer, $abonnement, $startdatum, $einddatum, $gebruikersnaam, $wachtwoord, $land, $geslacht, $geboortedatum]);
+        } catch (PDOException $fout) {
+            if ($fout->errorInfo[0] == 23000) {
+                $foutbericht = $fout->getMessage();
                 $emailerror = 'Violation of PRIMARY KEY';
-                $usernameerror = 'Violation of UNIQUE KEY';
-                $cardlengtherror = 'The INSERT statement conflicted with the CHECK constraint "ck_payment_card_length".';
-                $birthdateerror = "The INSERT statement conflicted with the CHECK constraint \"ck_birth_date\".";
-                if (strpos($errormessage, $emailerror) !== FALSE) {
-                    header('Location:abonnement.php?signuperror=duplicateemail');
+                $gebruikersnaamfout = 'Violation of UNIQUE KEY';
+                $kaartlengtefout = 'The INSERT statement conflicted with the CHECK constraint "ck_payment_card_length".';
+                $geboortedatumfout = 'The INSERT statement conflicted with the CHECK constraint "ck_birth_date".';
+                if (strpos($foutbericht, $emailerror) !== FALSE) {
+                    header("Location:abonnement.php?registreerfout=dubbelemail&voornaam=$voornaam&achternaam=$achternaam&kaartnummer=$kaartnummer");
                 }
-                if (strpos($errormessage, $usernameerror) !== FALSE) {
-                    header('Location:abonnement.php?signuperror=duplicateusername');
+                if (strpos($foutbericht, $gebruikersnaamfout) !== FALSE) {
+                    header("Location:abonnement.php?registreerfout=dubbelgebruikersnaam&voornaam=$voornaam&achternaam=$achternaam&kaartnummer=$kaartnummer");
                 }
-                if (strpos($errormessage, $cardlengtherror) !== FALSE) {
-                    header('Location:abonnement.php?signuperror=cardnumberlength');
+                if (strpos($foutbericht, $kaartlengtefout) !== FALSE) {
+                    header("Location:abonnement.php?registreerfout=kaartnummerlengte&voornaam=$voornaam&achternaam=$achternaam&kaartnummer=$kaartnummer");
                 }
-                if (strpos($errormessage, $birthdateerror) !== FALSE) {
-                    header('Location:abonnement.php?signuperror=birthdate');
+                if (strpos($foutbericht, $geboortedatumfout) !== FALSE) {
+                    header("Location:abonnement.php?registreerfout=geboortedatum&voornaam=$voornaam&achternaam=$achternaam&kaartnummer=$kaartnummer");
                 } else {
-                    echo "Er ging iets fout met de database. $error";
+                    echo "Er ging iets fout met de database. $fout";
                 }
             } else {
-                echo "Er ging iets fout met de database. $error";
+                echo "Er ging iets fout met de database. $fout";
             }
         }
 
-        if (!isset($error)) {
+        if (!isset($fout)) {
             header('Location:inlog.php');
         }
     }
@@ -143,7 +143,7 @@ if (isset($_POST['submit'])) {
             <h2>Aanmelden</h2>
             <br>
             <p>
-                <?php signup_error() ?>
+                <?php registreer_fout() ?>
             </p>
             <form class="formulier" action="" method="post">
                 <div class="">
@@ -151,72 +151,72 @@ if (isset($_POST['submit'])) {
                     <input type="email" name="email" id="email" placeholder="E-mailadres.."/>
                 </div>
                 <div>
-                    <label for="username">Gebruikersnaam</label>
-                    <input type="text" name="username" id="username" placeholder="Gebruikersnaam..">
+                    <label for="gebruikersnaam">Gebruikersnaam</label>
+                    <input type="text" name="gebruikersnaam" id="gebruikersnaam" placeholder="Gebruikersnaam..">
                 </div>
                 <div class="">
-                    <label for="firstname">Voornaam</label>
+                    <label for="voornaam">Voornaam</label>
                     <?php
-                    if (isset($_GET['firstname']) && !empty($_GET['firstname'])) {
-                        $firstname = $_GET['firstname'];
-                        echo "<input type='text' name='firstname' id='firstname' value='$firstname'/>";
+                    if (isset($_GET['voornaam']) && !empty($_GET['voornaam'])) {
+                        $voornaam = $_GET['voornaam'];
+                        echo "<input type='text' name='voornaam' id='voornaam' value='$voornaam'/>";
                     } else {
-                        echo '<input type="text" name="firstname" id="firstname" placeholder="Voornaam.."/>';
+                        echo '<input type="text" name="voornaam" id="voornaam" placeholder="Voornaam.."/>';
                     } ?>
                 </div>
                 <div>
-                    <label for="lastname">Achternaam</label>
+                    <label for="achternaam">Achternaam</label>
                     <?php
-                    if (isset($_GET['lastname']) && !empty($_GET['lastname'])) {
-                        $lastname = $_GET['lastname'];
-                        echo "<input type='text' name='lastname' id='lastname' value='$lastname' />";
+                    if (isset($_GET['achternaam']) && !empty($_GET['achternaam'])) {
+                        $achternaam = $_GET['achternaam'];
+                        echo "<input type='text' name='achternaam' id='achternaam' value='$achternaam' />";
                     } else {
-                        echo '<input type="text" name="lastname" id="lastname" placeholder="Achternaam..">';
+                        echo '<input type="text" name="achternaam" id="achternaam" placeholder="Achternaam..">';
                     } ?>
                 </div>
                 <div>
-                    <label for="country">Land</label>
-                    <select name="country" id="country">
+                    <label for="land">Land</label>
+                    <select name="land" id="land">
                         <option value="The Netherlands">The Netherlands</option>
                         <option value="Belgium">Belgium</option>
                     </select>
                 </div>
                 <div>
-                    <label for="payment">Betalingsmethode</label>
-                    <select name="payment" id="payment">
+                    <label for="betaling">Betalingsmethode</label>
+                    <select name="betaling" id="betaling">
                         <option value="Visa">Visa</option>
                         <option value="Mastercard">Mastercard</option>
                     </select>
                 </div>
                 <div class="">
-                    <label for="cardnumber">Creditcardnummer</label>
+                    <label for="kaartnummer">Creditcardnummer</label>
                     <?php
-                    if (isset($_GET['cardnumber']) && !empty($_GET['cardnumber'])) {
-                        $cardnumber = $_GET['cardnumber'];
-                        echo "<input type='text' name='cardnumber' id='cardnumber' value='$cardnumber' />";
+                    if (isset($_GET['kaartnummer']) && !empty($_GET['kaartnummer'])) {
+                        $kaartnummer = $_GET['kaartnummer'];
+                        echo "<input type='text' name='kaartnummer' id='kaartnummer' value='$kaartnummer' />";
                     } else {
-                        echo '<input type="text" name="cardnumber" id="cardnumber" placeholder="Creditcardnummer.."/>';
+                        echo '<input type="text" name="kaartnummer" id="kaartnummer" placeholder="Creditcardnummer.."/>';
                     } ?>
                 </div>
                 <div>
-                    <label for="birthdate">Geboortedatum</label>
-                    <input type="date" name="birthdate" id="birthdate" max="<?php echo "date('Y-m-d')"; ?>">
+                    <label for="geboortedatum">Geboortedatum</label>
+                    <input type="date" name="geboortedatum" id="geboortedatum" max="<?php echo "date('Y-m-d')"; ?>">
                 </div>
                 <div>
                     <label for="man">Man</label>
-                    <input type="radio" name="gender" id="man" value="M">
+                    <input type="radio" name="geslacht" id="man" value="M">
                     <label for="vrouw">Vrouw</label>
-                    <input type="radio" name="gender" id="vrouw" value="F">
+                    <input type="radio" name="geslacht" id="vrouw" value="F">
                 </div>
                 <div>
                 </div>
                 <div>
                     <label for="wachtwoord">Wachtwoord</label>
-                    <input type="password" id="wachtwoord" name="password" placeholder="Wachtwoord..">
+                    <input type="password" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord..">
                 </div>
                 <div>
-                    <label for="wachtwoord2">Wachtwoord</label>
-                    <input type="password" id="wachtwoord2" name="confirmation" placeholder="Bevestig wachtwoord..">
+                    <label for="bevestiging">Wachtwoord</label>
+                    <input type="password" id="bevestiging" name="bevestiging" placeholder="Bevestig wachtwoord..">
                 </div>
                 <div>
                     <label for="private">Private</label>
@@ -226,7 +226,7 @@ if (isset($_POST['submit'])) {
                     <label for="commander">Commander</label>
                     <input type="radio" name="abonnement" id="commander" value="Commander"><br/>
                 </div>
-                <button type="submit" name="submit">Verzenden</button>
+                <button type="submit" name="verzending">Verzenden</button>
             </form>
         </div>
     </div>

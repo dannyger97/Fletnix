@@ -13,47 +13,47 @@ function HTMLTable($values,$tablehead){
     return $table;
 }
 
-function signup_error()
+function registreer_fout()
 {
-    if ($_GET['signuperror'] == 'empty') {
+    if ($_GET['registreerfout'] == 'leeg') {
         echo("<p class='error'>Niet alle velden zijn ingevoerd! Probeer het nog een keer.</p> <br>");
     }
-    if ($_GET['signuperror'] == 'emailadres') {
+    if ($_GET['registreerfout'] == 'emailadres') {
         echo("<p class='error'>Dit is geen juist emailadres! Probeer het nog een keer.</p> <br>");
     }
-    if ($_GET['signuperror'] == 'password') {
+    if ($_GET['registreerfout'] == 'wachtwoord') {
         echo("<p class='error'>De wachtwoorden zijn niet gelijk! Probeer het nog een keer.</p> <br>");
     }
-    if ($_GET['signuperror'] == 'duplicateemail') {
+    if ($_GET['registreerfout'] == 'dubbelemail') {
         echo("<p class='error'>Het ingevoerde emailadres is al bezet. Probeer het met een ander emailadres.</p> <br>");
     }
-    if ($_GET['signuperror'] == 'duplicateusername') {
+    if ($_GET['registreerfout'] == 'dubbelgebruikersnaam') {
         echo("<p class='error'>De ingevoerde gebruikersnaam is al bezet. Probeer het met een andere gebruikersnaam.</p> <br>");
     }
-    if ($_GET['signuperror'] == 'cardnumberlength') {
+    if ($_GET['registreerfout'] == 'kaartnummerlengte') {
         echo("<p class='error'>Het ingevoerde creditcardnummer is te kort. Probeer het nog een keer.</p> <br>");
     }
-    if ($_GET['signuperror'] == 'birthdate') {
-        echo("<p class='error'>De ingevoerde geboortedatum klopt niet met de datum van vandaag. Probeer het nog een keer.</p> <br>");
+    if ($_GET['registreerfout'] == 'geboortedatum') {
+        echo("<p class='error'>De ingevoerde geboortedatum klopt niet. Probeer het nog een keer.</p> <br>");
     }
-    if ($_GET['signuperror'] == 'passwordlength') {
+    if ($_GET['registreerfout'] == 'wachtwoordlengte') {
         echo("<p class='error'>Het ingevoerde wachtwoord moet minimaal 6 tekens bevatten. Probeer het nog een keer.</p> <br>");
     }
-    if ($_GET['signuperror'] == 'passwordnumber') {
+    if ($_GET['registreerfout'] == 'wachtwoordcijfer') {
         echo("<p class='error'>Het ingevoerde wachtwoord bevat geen cijfer. Probeer het nog een keer.</p> <br>");
     }
 }
 
 function movieloop ($i)
 {
-    $movies="";
+    $resultaat="";
     foreach ($i as $film) {
-        $image = $film['cover_image'];
-        $movie = $film['movie_id'];
-        $movies.= '<a href="/Fletnix/films/' . $movie . '">
-        <img src="/Fletnix/' . $image . '">
+        $foto = $film['cover_image'];
+        $films = $film['movie_id'];
+        $resultaat.= '<a href="/Fletnix/films/' . $films . '">
+        <img src="/Fletnix/' . $foto . '">
         </a>';
     }
-    echo $movies;
+    echo $resultaat;
 }
 ?>
