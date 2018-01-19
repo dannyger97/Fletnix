@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_URI']=='/Fletnix/inlog.php' or $_SERVER['REQUEST_URI']=='/Fletnix/inlog.php?return=filmoverzicht.php' or $_SERVER['REQUEST_URI']=='/Fletnix/about.php?contact=success'
 or $_SERVER['REQUEST_URI']=='/Fletnix/account.php' or $_SERVER['REQUEST_URI']=='/Fletnix/uitlog.php' or $_SERVER['REQUEST_URI']=='/Fletnix/about.php' or $_SERVER['REQUEST_URI']=='/Fletnix/error.php'
-or $_SERVER['REQUEST_URI']=='/Fletnix/filmoverzicht.php?search=result%'){
+or isset($_GET['title'])){
     echo
         "
         <footer class='fixed'>
